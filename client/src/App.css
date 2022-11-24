@@ -1,6 +1,6 @@
 :root {
-  --primary-color: #005fff;
-  --primary-color-alpha: #005fff1a;
+  --primary-color: #1b25b9;
+  --primary-color-alpha: var(--primary-color) 1a;
 }
 
 html,
@@ -27,7 +27,7 @@ body {
   justify-content: center;
 
   padding: 2rem;
-  background: #005fff;
+  background: var(--primary-color);
 }
 
 .auth__form-container_image {
@@ -101,8 +101,8 @@ body {
 
 .auth__form-container_fields-content_input input:focus,
 .auth__form-container_fields-content_input input:active {
-  box-shadow: 0px 0px 0px 1.5px #005fff;
-  border-color: #005fff;
+  box-shadow: 0px 0px 0px 1.5px var(--primary-color);
+  border-color: var(--primary-color);
 }
 
 .auth__form-container_fields-content_input-password {
@@ -120,8 +120,8 @@ body {
 
 .auth__form-container_fields-content_button button {
   border-radius: 4px;
-  background: #005fff;
-  border: 1px solid #005fff;
+  background: var(--primary-color);
+  border: 1px solid var(--primary-color);
   color: #fff;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 500;
@@ -132,7 +132,8 @@ body {
 }
 
 .auth__form-container_fields-content_button button:hover {
-  background: #0066ff;
+  filter: brightness(200%);
+  background: var(--primary-color);
 }
 
 .auth__form-container_fields-account {
@@ -155,7 +156,7 @@ body {
   font-weight: 700;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 960px) {
   .auth__form-container {
     flex-direction: column-reverse;
   }
@@ -1712,7 +1713,7 @@ div.rta__autocomplete.str-chat__emojisearch {
   display: none;
   height: 50px;
   width: 50px;
-  background: #005fff;
+  background: var(--primary-color);
   position: absolute;
   right: -2%;
   top: 50%;
