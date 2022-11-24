@@ -2,11 +2,7 @@ import React from "react";
 import { ChannelList, useChatContext } from "stream-chat-react";
 import Cookies from "universal-cookie";
 
-import {
-  ChannelSearch,
-  TeamChannelList,
-  TeamChannelPreview,
-} from "stream-chat-react";
+import { ChannelSearch, TeamChannelList, TeamChannelPreview } from "./";
 import { HospitalIcon, LogoutIcon } from "../assets";
 
 const SideBar = () => (
