@@ -1,5 +1,5 @@
 :root {
-  --primary-color: #1b25b9;
+  --primary-color: #b9771b;
   --primary-color-alpha: var(--primary-color) 1a;
 }
 
@@ -34,11 +34,13 @@ body {
   flex: 3;
   display: flex;
   box-shadow: 1px 0px 5px rgba(0, 0, 0, 0.05);
+  background: var(--primary-color);
 }
 
 .auth__form-container_image img {
   width: 100%;
   height: 100%;
+  filter: opacity(90%);
 }
 
 .auth__form-container_fields-content {
@@ -56,7 +58,8 @@ body {
 .auth__form-container_fields-content p {
   font-size: 1.5rem;
   font-family: Arial, Helvetica, sans-serif;
-  color: #05245a;
+  filter: brightness(50%);
+  color: var(--primary-color);
   font-weight: 900;
 }
 
@@ -151,7 +154,8 @@ body {
 }
 
 .auth__form-container_fields-account span {
-  color: #05245a;
+  filter: brightness(50%);
+  color: var(--primary-color);
   cursor: pointer;
   font-weight: 700;
 }
