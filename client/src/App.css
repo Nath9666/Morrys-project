@@ -1738,7 +1738,7 @@ div.rta__autocomplete.str-chat__emojisearch {
   padding: 10px;
 }
 
-@media screen and (max-width: 90px) {
+@media screen and (max-width: 960px) {
   .channel-list__container {
     display: none;
   }
