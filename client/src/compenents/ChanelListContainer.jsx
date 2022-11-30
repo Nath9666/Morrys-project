@@ -36,6 +36,7 @@ function ChanelListContainer() {
     cookies.remove("avatarURL");
     cookies.remove("hashedPassword");
     cookies.remove("phoneNumber");
+    cookies.remove("token");
 
     window.location.reload();
   };
