@@ -26,7 +26,7 @@ const TeamChannelList = ({ childern, error = false, loading, type }) => {
     <div className="team-channel-list">
       <div className="team-channel-list__header"></div>
       <p className="team-channel-list__header__title">
-        {type === "team" ? "Channels" : "Direct Message"} loading...
+        {type === "team" ? "Channels" : "Direct Message"}
       </p>
       {/*Button to add a channel to the team*/}
       {childern}
