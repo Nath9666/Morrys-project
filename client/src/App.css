@@ -1,8 +1,9 @@
 :root {
-  --primary-color: #005fff;
-  --primary-color-alpha: #005fff1a;
-  --secondary-color: #85b2ff;
-  --button-color: #5096ff;
+  --primary-color: #ffae00;
+  --primary-color-alpha: #ffae007a;
+  --secondary-color: #d5960e;
+  --button-color: #d39e2b;
+  --blue-alice: transparent;
 }
 
 html,
@@ -1331,7 +1332,9 @@ ul.str-chat__simple-reactions-list:hover {
   width: 24px !important;
 }
 
-.str-chat__message-team-content--single:not(.str-chat__message-team-content--image)::before {
+.str-chat__message-team-content--single:not(
+    .str-chat__message-team-content--image
+  )::before {
   display: none;
 }
 
