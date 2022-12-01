@@ -13,7 +13,7 @@ const signup = async (req, res) => {
   try {
     const { fullName, username, password, phoneNumber } = req.body;
 
-    const userId = crypto.randomBytes(16).toString("hex");
+    const userId = crypto.randomBytes(6).toString("hex");
 
     const serverClient = connect(api_key, api_secret, app_id);
 
