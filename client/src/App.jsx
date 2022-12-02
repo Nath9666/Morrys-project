@@ -35,16 +35,15 @@ function App() {
   const [isEditing, setIsEditing] = useState(false);
 
   if (!authToken) return <Auth />;
-  console.log(isEditing);
 
   return (
     <div className="app__wrapper">
       <Chat client={client} theme="team light">
         <ChanelListContainer
           isCreating={isCreating}
-          setisCreating={setIsCreating}
+          setIsCreating={setIsCreating}
           setCreateType={setCreateType}
-          setisEditing={setIsEditing}
+          setIsEditing={setIsEditing}
         />
 
         <ChannelConainer

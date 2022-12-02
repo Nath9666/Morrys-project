@@ -59,6 +59,7 @@ const TeamChannelHeader = ({ setIsEditing }) => {
     const members = Object.values(channel.state.members).filter(
       ({ user }) => user.id !== client.userID
     );
+    console.log(members);
     const additionalMembers = members.length - 3;
 
     if (channel.type === "messaging") {

@@ -5,7 +5,7 @@ const CreateChannel = () => {
     <div>
       <div className="row">
         <div className="col-sm-12">
-          <h1>Channel</h1>
+          <h1>Channel creating</h1>
         </div>
       </div>
     </div>
