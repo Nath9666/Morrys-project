@@ -37,11 +37,13 @@ body {
   flex: 3;
   display: flex;
   box-shadow: 1px 0px 5px rgba(0, 0, 0, 0.05);
+  background: var(--primary-color);
 }
 
 .auth__form-container_image img {
   width: 100%;
   height: 100%;
+  filter: opacity(90%);
 }
 
 .auth__form-container_fields-content {
@@ -158,7 +160,7 @@ body {
   font-weight: 700;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 960px) {
   .auth__form-container {
     flex-direction: column-reverse;
   }
