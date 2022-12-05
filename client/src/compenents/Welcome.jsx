@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { MorryIcon } from "../assets";
+import { Auth } from "./";
 
 const navigation = [
   { name: "Product", href: "#" },
@@ -13,6 +14,9 @@ const navigation = [
 
 export default function Welcome() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [log, setLog] = useState(false);
+
+  if (log) return <Auth />;
 
   return (
     <div className="isolate bg-white">
@@ -77,12 +81,15 @@ export default function Welcome() {
               ))}
             </div>
             <div className="hidden lg:flex lg:min-w-0 lg:flex-1 lg:justify-end">
-              <a
+              <p
                 href="#"
                 className="inline-block rounded-lg px-3 py-1.5 text-sm font-semibold leading-6 text-gray-900 shadow-sm ring-1 ring-gray-900/10 hover:ring-gray-900/20"
+                onClick={() => {
+                  setLog((prevState) => !prevState);
+                }}
               >
                 Log in
-              </a>
+              </p>
             </div>
           </nav>
           <Dialog as="div" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
@@ -94,11 +101,7 @@ export default function Welcome() {
                 <div className="flex">
                   <a href="#" className="-m-1.5 p-1.5">
                     <span className="sr-only">Your Company</span>
-                    <img
-                      className="h-8"
-                      src="https://tailwindui.com/img/logos/mark.svg?color=orange&shade=600"
-                      alt=""
-                    />
+                    <img className="h-12" src={MorryIcon} alt="" />
                   </a>
                 </div>
                 <div className="flex">
@@ -126,12 +129,15 @@ export default function Welcome() {
                     ))}
                   </div>
                   <div className="py-6">
-                    <a
+                    <p
                       href="#"
-                      className="-mx-3 block rounded-lg py-2.5 px-3 text-base font-semibold leading-6 text-gray-900 hover:bg-gray-400/10"
+                      className="inline-block rounded-lg px-3 py-1.5 text-sm font-semibold leading-6 text-gray-900 shadow-sm ring-1 ring-gray-900/10 hover:ring-gray-900/20"
+                      onClick={() => {
+                        setLog((prevState) => !prevState);
+                      }}
                     >
                       Log in
-                    </a>
+                    </p>
                   </div>
                 </div>
               </div>
@@ -156,12 +162,11 @@ export default function Welcome() {
               </div>
               <div>
                 <h1 className="text-4xl font-bold tracking-tight sm:text-center sm:text-6xl">
-                  Data to enrich your online business
+                  Morrys the best office service to manage a team and a project
                 </h1>
                 <p className="mt-6 text-lg leading-8 text-gray-600 sm:text-center">
-                  Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure
-                  qui lorem cupidatat commodo. Elit sunt amet fugiat veniam
-                  occaecat fugiat aliqua.
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Fugit, impedit!
                 </p>
                 <div className="mt-8 flex gap-x-4 sm:justify-center">
                   <a
