@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { MorryIcon } from "../assets";
 
 const navigation = [
   { name: "Product", href: "#" },
@@ -15,7 +16,7 @@ export default function Welcome() {
 
   return (
     <div className="isolate bg-white">
-      <div className="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]">
+      <div className="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-2xl sm:top-[-20rem]">
         <svg
           className="relative left-[calc(50%-11rem)] -z-10 h-[21.1875rem] max-w-none -translate-x-1/2 rotate-[30deg] sm:left-[calc(50%-30rem)] sm:h-[42.375rem]"
           viewBox="0 0 1155 678"
@@ -36,8 +37,8 @@ export default function Welcome() {
               y2="474.645"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stopColor="#9089FC" />
-              <stop offset={1} stopColor="#FF80B5" />
+              <stop stopColor="#ffae00" />
+              <stop offset={1} stopColor="#364660" />
             </linearGradient>
           </defs>
         </svg>
@@ -49,13 +50,9 @@ export default function Welcome() {
             aria-label="Global"
           >
             <div className="flex lg:min-w-0 lg:flex-1" aria-label="Global">
-              <a href="#" className="-m-1.5 p-1.5">
-                <span className="sr-only">Your Company</span>
-                <img
-                  className="h-8"
-                  src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                  alt=""
-                />
+              <a href="#" className="-m-4 p-4">
+                <span className="sr-only">Morrys</span>
+                <img className="h-12" src={MorryIcon} alt="" />
               </a>
             </div>
             <div className="flex lg:hidden">
@@ -99,7 +96,7 @@ export default function Welcome() {
                     <span className="sr-only">Your Company</span>
                     <img
                       className="h-8"
-                      src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                      src="https://tailwindui.com/img/logos/mark.svg?color=orange&shade=600"
                       alt=""
                     />
                   </a>
@@ -150,7 +147,7 @@ export default function Welcome() {
                 <div className="relative overflow-hidden rounded-full py-1.5 px-4 text-sm leading-6 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
                   <span className="text-gray-600">
                     Announcing our next round of funding.{" "}
-                    <a href="#" className="font-semibold text-indigo-600">
+                    <a href="#" className="font-semibold text-orange-600">
                       <span className="absolute inset-0" aria-hidden="true" />
                       Read more <span aria-hidden="true">&rarr;</span>
                     </a>
@@ -169,10 +166,10 @@ export default function Welcome() {
                 <div className="mt-8 flex gap-x-4 sm:justify-center">
                   <a
                     href="#"
-                    className="inline-block rounded-lg bg-indigo-600 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-indigo-600 hover:bg-indigo-700 hover:ring-indigo-700"
+                    className="inline-block rounded-lg bg-orange-600 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-orange-600 hover:bg-orange-700 hover:ring-orange-700"
                   >
                     Get started
-                    <span className="text-indigo-200" aria-hidden="true">
+                    <span className="text-orange-200" aria-hidden="true">
                       &rarr;
                     </span>
                   </a>
@@ -187,7 +184,7 @@ export default function Welcome() {
                   </a>
                 </div>
               </div>
-              <div className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]">
+              <div className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-2xl sm:top-[calc(100%-30rem)]">
                 <svg
                   className="relative left-[calc(50%+3rem)] h-[21.1875rem] max-w-none -translate-x-1/2 sm:left-[calc(50%+36rem)] sm:h-[42.375rem]"
                   viewBox="0 0 1155 678"
@@ -208,8 +205,8 @@ export default function Welcome() {
                       y2="474.645"
                       gradientUnits="userSpaceOnUse"
                     >
-                      <stop stopColor="#9089FC" />
-                      <stop offset={1} stopColor="#FF80B5" />
+                      <stop stopColor="#ffae00" />
+                      <stop offset={1} stopColor="#364660" />
                     </linearGradient>
                   </defs>
                 </svg>

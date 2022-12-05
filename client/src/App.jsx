@@ -12,7 +12,7 @@ import {
 
 import "stream-chat-react/dist/css/index.css";
 import "./App.css";
-import "./styles.css";
+import "./index.css";
 
 const cookies = new Cookies();
 
@@ -53,6 +53,8 @@ function App() {
           setCreateType={setCreateType}
           setIsEditing={setIsEditing}
         />
+
+        <p className="bg-blue-500">Hello les enfants</p>
 
         <ChannelConainer
           isCreating={isCreating}
