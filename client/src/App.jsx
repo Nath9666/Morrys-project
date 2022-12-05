@@ -3,10 +3,16 @@ import { StreamChat } from "stream-chat";
 import { ChannelList, Chat } from "stream-chat-react";
 import Cookies from "universal-cookie";
 
-import { ChanelListContainer, ChannelConainer, Auth } from "./compenents";
+import {
+  ChanelListContainer,
+  ChannelConainer,
+  Auth,
+  Welcome,
+} from "./compenents";
 
 import "stream-chat-react/dist/css/index.css";
 import "./App.css";
+import "./styles.css";
 
 const cookies = new Cookies();
 
@@ -34,7 +40,9 @@ function App() {
   const [isCreating, setIsCreating] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
 
-  if (!authToken) return <Auth />;
+  if (!authToken) return <Welcome />;
+
+  <Auth />;
 
   return (
     <div className="app__wrapper">
