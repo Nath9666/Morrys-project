@@ -23,8 +23,8 @@ const SideBar = ({ logout }) => (
 );
 
 const CompanyHeader = () => (
-  <div className="channel-list__header">
-    <p className="channel-list__header__text">Morrys</p>
+  <div className="p-4 ">
+    <p className="text-lg font-normal text-white">Morrys</p>
   </div>
 );
 

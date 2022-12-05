@@ -54,8 +54,6 @@ function App() {
           setIsEditing={setIsEditing}
         />
 
-        <p className="bg-blue-500">Hello les enfants</p>
-
         <ChannelConainer
           isCreating={isCreating}
           setIsCreating={setIsCreating}

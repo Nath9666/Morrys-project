@@ -80,7 +80,7 @@ export default function Welcome() {
                 </a>
               ))}
             </div>
-            <div className="hidden lg:flex lg:min-w-0 lg:flex-1 lg:justify-end">
+            <div className="hidden lg:flex lg:min-w-0 lg:flex-1 lg:justify-end cursor-pointer">
               <p
                 href="#"
                 className="inline-block rounded-lg px-3 py-1.5 text-sm font-semibold leading-6 text-gray-900 shadow-sm ring-1 ring-gray-900/10 hover:ring-gray-900/20"
@@ -128,7 +128,7 @@ export default function Welcome() {
                       </a>
                     ))}
                   </div>
-                  <div className="py-6">
+                  <div className="py-6 cursor-pointer">
                     <p
                       href="#"
                       className="inline-block rounded-lg px-3 py-1.5 text-sm font-semibold leading-6 text-gray-900 shadow-sm ring-1 ring-gray-900/10 hover:ring-gray-900/20"
@@ -169,24 +169,14 @@ export default function Welcome() {
                   Fugit, impedit!
                 </p>
                 <div className="mt-8 flex gap-x-4 sm:justify-center">
-                  <a
-                    href="#"
-                    className="inline-block rounded-lg bg-orange-600 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-orange-600 hover:bg-orange-700 hover:ring-orange-700"
-                  >
-                    Get started
-                    <span className="text-orange-200" aria-hidden="true">
-                      &rarr;
-                    </span>
-                  </a>
-                  <a
-                    href="#"
-                    className="inline-block rounded-lg px-4 py-1.5 text-base font-semibold leading-7 text-gray-900 ring-1 ring-gray-900/10 hover:ring-gray-900/20"
-                  >
-                    Live demo
-                    <span className="text-gray-400" aria-hidden="true">
-                      &rarr;
-                    </span>
-                  </a>
+                  <div className="hidden sm:mb-8 sm:flex sm:justify-center">
+                    <input
+                      type="text"
+                      placeholder="Search a project"
+                      className="relative overflow-hidden rounded-full py-1.5 px-4 text-1.5xl leading-6 ring-1 ring-gray-900/10
+                       hover:ring-gray-900/20"
+                    />
+                  </div>
                 </div>
               </div>
               <div className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-2xl sm:top-[calc(100%-30rem)]">
