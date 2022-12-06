@@ -96,7 +96,7 @@ function TagsInput(props) {
     setTags([...tags.filter((_, index) => index !== indexToRemove)]);
   };
   const addTags = (event) => {
-    if (event.target.value !== "") {
+    if (event.target.value !== " ") {
       setTags([...tags, event.target.value]);
       props.selectedTags([...tags, event.target.value]);
       event.target.value = "";
