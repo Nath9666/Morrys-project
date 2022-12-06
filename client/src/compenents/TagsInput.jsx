@@ -89,7 +89,6 @@ body {
 const selectedTags = (tags) => {
   console.log(tags);
 };
-const props = { selectedTags: selectedTags, tags: ["Nodejs", "MongoDB"] };
 
 function TagsInput(props) {
   const [tags, setTags] = React.useState(props.tags);
