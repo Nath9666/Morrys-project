@@ -1,0 +1,31 @@
+Index: .idea/workspace.xml
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	
++++ b/.idea/workspace.xml	
+@@ -1,7 +1,7 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="ChangeListManager">
+-    <list default="true" id="2c77a325-3123-4bae-bd43-ba3cf20e8412" name="Changes" comment="Demarrage branche (installation des dépendances nécessaires) + Debut conception page &quot;Creation new project&quot;. Tag en cours" />
++    <list default="true" id="19ba01cc-cac9-4b69-802f-213d64972a57" name="Changes" comment="Demarrage branche (installation des dépendances nécessaires) + Debut conception page &quot;Creation new project&quot;. Tag en cours" />
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+@@ -62,7 +62,7 @@
+       <recent name="C:\Users\ethan\OneDrive - Efrei\L3-S1\L3S1-PROGRAMMATION WEB\Projet\react-project\client\src\compenents" />
+     </key>
+   </component>
+-  <component name="RunManager" selected="npm.Start client">
++  <component name="RunManager" selected="npm.Start serveur">
+     <configuration name="App.jsx" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="App.jsx" working-dir="$PROJECT_DIR$/client/src">
+       <method v="2" />
+     </configuration>
+@@ -104,6 +104,7 @@
+     </list>
+     <recent_temporary>
+       <list>
++        <item itemvalue="Node.js.App.jsx" />
+         <item itemvalue="Node.js.App.jsx" />
+       </list>
+     </recent_temporary>
