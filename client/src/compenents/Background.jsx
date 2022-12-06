@@ -30,7 +30,7 @@ const Background = ({ color1, color2 }) => {
           </defs>
         </svg>
       </div>
-      <div className="absolute inset-x-0 top-[calc(100%-13)] -z-50 transform-gpu overflow-hidden blur-2xl sm:top-[calc(100%-40rem)]">
+      <div className="absolute inset-x-0 top-[calc(100%-13)] -z-50 transform-gpu overflow-hidden blur-2xl sm:top-[calc(100%-43rem)]">
         <svg
           className="relative left-[calc(50%+3rem)] h-[21.1875rem] max-w-none -translate-x-3/4 sm:left-[calc(50%+36rem)] sm:h-[42.375rem]"
           viewBox="0 0 1155 678"
