@@ -1,5 +1,5 @@
 // TagsInput.jsx
-import React from 'react'
+import React from "react";
 
 const CSSForTagInput = `Pug SCSS BabelResult Skip Results Iframe
 EDIT ON
@@ -85,47 +85,49 @@ body {
   .tags-input {
     width: calc(100vw - 32px);
   }
-}`
-const selectedTags = tags => {
-    console.log(tags);
+}`;
+const selectedTags = (tags) => {
+  console.log(tags);
 };
-const props = {selectedTags: selectedTags,  tags:['Nodejs', 'MongoDB'] }
+const props = { selectedTags: selectedTags, tags: ["Nodejs", "MongoDB"] };
 
 function TagsInput(props) {
-    const [tags, setTags] = React.useState(props.tags);
-    const removeTags = indexToRemove => {
-        setTags([...tags.filter((_, index) => index !== indexToRemove)]);
-    };
-    const addTags = event => {
-        if (event.target.value !== "") {
-            setTags([...tags, event.target.value]);
-            props.selectedTags([...tags, event.target.value]);
-            event.target.value = "";
-        }
-    };
-    return (
-        <>
-        <style>{CSSForTagInput}</style>
-        <div className="tags-input">
-            <ul id="tags">
-                {tags.map((tag, index) => (
-                    <li key={index} className="tag">
-                        <span className='tag-title'>{tag}</span>
-                        <span className='tag-close-icon'
-                              onClick={() => removeTags(index)}
-                        >x</span>
-                    </li>
-                ))}
-            </ul>
-            <input
-                type="text"
-                onKeyUp={event => event.key === "Enter" ? addTags(event) : null}
-                placeholder="Press enter to add tags"
-            />
-        </div>
-        </>
-    );
+  const [tags, setTags] = React.useState(props.tags);
+  const removeTags = (indexToRemove) => {
+    setTags([...tags.filter((_, index) => index !== indexToRemove)]);
+  };
+  const addTags = (event) => {
+    if (event.target.value !== "") {
+      setTags([...tags, event.target.value]);
+      props.selectedTags([...tags, event.target.value]);
+      event.target.value = "";
+    }
+  };
+  return (
+    <>
+      <style>{CSSForTagInput}</style>
+      <div className="tags-input">
+        <ul id="tags">
+          {tags.map((tag, index) => (
+            <li key={index} className="tag">
+              <span className="tag-title">{tag}</span>
+              <span
+                className="tag-close-icon"
+                onClick={() => removeTags(index)}
+              >
+                x
+              </span>
+            </li>
+          ))}
+        </ul>
+        <input
+          type="text"
+          onKeyDown={(event) => (event.key === " " ? addTags(event) : null)}
+          placeholder="Press enter to add tags"
+        />
+      </div>
+    </>
+  );
 }
-
 
 export default TagsInput;
