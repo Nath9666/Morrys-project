@@ -7,7 +7,7 @@ import { Auth, Background } from "./";
 
 const MainPage = () => {
   return (
-    <main>
+    <>
       <div className="relative px-6 lg:px-8">
         <div className="mx-auto max-w-3xl pt-20 pb-32 sm:pt-48 sm:pb-40">
           <div>
@@ -44,7 +44,7 @@ const MainPage = () => {
           </div>
         </div>
       </div>
-    </main>
+    </>
   );
 };
 
@@ -286,7 +286,10 @@ const NavBar = ({ setMobileMenuOpen, setMenu, mobileMenuOpen, setLog }) => {
                     {navigation.map((item) => (
                       <p
                         key={item.name}
-                        href={item.href}
+                        onClick={() => {
+                          setMenu(item.onClick);
+                          setMobileMenuOpen(false);
+                        }}
                         className="font-semibold text-gray-900 hover:text-gray-900 cursor-pointer ring-2 hover:ring-gray-900/20 ring-gray-900/10"
                       >
                         {item.name}
