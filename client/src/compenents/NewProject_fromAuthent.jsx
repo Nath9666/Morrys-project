@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Form from 'react-bootstrap/Form';
-import {ProjectIcon} from "../assets";
+import Form from "react-bootstrap/Form";
+import { ProjectIcon } from "../assets";
 import TagsInput from "./TagsInput";
 
 const CSSNewProject = `
@@ -24,97 +24,102 @@ const CSSNewProject = `
             transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
             -webkit-appearance: none;
             appearance: none;
-        }`
+        }`;
 
 const initialState = {
-    NomProject: "Project1",
-    Visibility: "",
-    ProjectType: "",
-    DescriptionProject: ""
+  NomProject: "Project1",
+  Visibility: "",
+  ProjectType: "",
+  DescriptionProject: "",
 };
 
 function NewProject_fromAuthent() {
-    const [form, setForm] = useState(initialState);
+  const [form, setForm] = useState(initialState);
 
-    const handleChange = (e) => {
-        setForm({ ...form, [e.target.name]: e.target.value });
-    };
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        console.log(form);
-        const { NomProject, Description, password, phoneNumber, avatarURL } = form;
-        const URL = "http://localhost:area5000/auth";
-        window.location.reload();
-    };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log(form);
+    const { NomProject, Description, password, phoneNumber, avatarURL } = form;
+    const URL = "http://localhost:area5000/auth";
+    window.location.reload();
+  };
 
-    const PrintSelectTags = (tags) => {
-        console.log(tags);
-    };
+  const PrintSelectTags = (tags) => {
+    console.log(tags);
+  };
 
-    return (
-        <>
-        <style>{CSSNewProject }</style>
-        <div className="auth__form-container">
-            <div className="auth__form-container_fields">
-                <div className="auth__form-container_fields-content">
-                    <h1 style={{color:"darkorange"}}>Creation of a new project</h1>
-                    <form onSubmit={handleSubmit}>
-                        <div className="auth__form-container_fields-content_input">
-                            <label htmlFor="NomProject">Project name</label>
-                            <input
-                                name="NomProject"
-                                type="text"
-                                placeholder="Project name"
-                                onChange={handleChange}
-                                required
-                            />
-                        </div>
-                        <div className="auth__form-container_fields-content_input">
-                            <label htmlFor="Description">Description</label>
-                            <input
-                                name="Description"
-                                type="textarea"
-                                placeholder="Description"
-                                onChange={handleChange}
-                                required
-                            />
-                        </div>
+  const tag = ["name", "describedby"];
 
-                        <Form.Select aria-label="Visibility"
-                                     name="Visibility"
-                                     onChange={handleChange}
-                                     required>
-                            <option>Choose the visibility</option>
-                            <option value="private">Private</option>
-                            <option value="public">Public</option>
-                        </Form.Select>
+  return (
+    <>
+      <style>{CSSNewProject}</style>
+      <div className="auth__form-container">
+        <div className="auth__form-container_fields">
+          <div className="auth__form-container_fields-content">
+            <h1 style={{ color: "darkorange" }}>Creation of a new project</h1>
+            <form onSubmit={handleSubmit}>
+              <div className="auth__form-container_fields-content_input">
+                <label htmlFor="NomProject">Project name</label>
+                <input
+                  name="NomProject"
+                  type="text"
+                  placeholder="Project name"
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              <div className="auth__form-container_fields-content_input">
+                <label htmlFor="Description">Description</label>
+                <input
+                  name="Description"
+                  type="textarea"
+                  placeholder="Description"
+                  onChange={handleChange}
+                  required
+                />
+              </div>
 
-                        <Form.Select aria-label="ProjectType"
-                                     name="ProjectType"
-                                     onChange={handleChange}
-                                     required>
-                            <option>Choose the type of project</option>
-                            <option value="code">Code</option>
-                            <option value="research">Research</option>
-                        </Form.Select>
+              <Form.Select
+                aria-label="Visibility"
+                name="Visibility"
+                onChange={handleChange}
+                required
+              >
+                <option>Choose the visibility</option>
+                <option value="private">Private</option>
+                <option value="public">Public</option>
+              </Form.Select>
 
-                        <TagsInput selectedTags={PrintSelectTags}  tags={['Nodejs', 'MongoDB']}/>
+              <Form.Select
+                aria-label="ProjectType"
+                name="ProjectType"
+                onChange={handleChange}
+                required
+              >
+                <option>Choose the type of project</option>
+                <option value="code">Code</option>
+                <option value="research">Research</option>
+              </Form.Select>
 
-                        <div className="auth__form-container_fields-content_button">
-                            <button type="submit"> Create new project </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <div className="auth__form-container_image">
-                <img src={ProjectIcon} alt="Create a project" />
-            </div>
+              <TagsInput selectedTags={PrintSelectTags} tags={tag} />
 
+              <div className="auth__form-container_fields-content_button">
+                <button type="submit"> Create new project </button>
+              </div>
+            </form>
+          </div>
         </div>
-        </>
-    );
-    /*
+        <div className="auth__form-container_image">
+          <img src={ProjectIcon} alt="Create a project" />
+        </div>
+      </div>
+    </>
+  );
+  /*
                             <select className="newProj__form-container_fields-content_select"
                             name="Visibility"
                             aria-label="Visibility"
