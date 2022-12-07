@@ -1,121 +1,107 @@
-import Form from 'react-bootstrap/Form';
-import FloatingLabel from 'react-bootstrap/FloatingLabel';
-import {Button} from "react-bootstrap";
-import {useState} from "react";
+import React, { useState } from "react";
+import Form from "react-bootstrap/Form";
+import { ProjectIcon } from "../assets";
+import TagsInput, {Tag, Tag_NameOrColor} from "./TagsInput";
 
-//             width: 100%;
-const CSSNewProject = `
-            .form-select {
-            display: block;
-            padding: 0.2rem 3rem 0.3rem 0.5rem;
-            margin: 1rem 1rem;
-            -moz-padding-start: calc(.75rem - 3px);
-            font-size: 1rem;
-            font-weight: 400;
-            line-height: 1.5;
-            color: #212529;
-            background-color: #fff;
-            background-repeat: no-repeat;
-            background-position: right 0.75rem center;
-            background-size: 16px 12px;
-            border: 1px solid #ced4da;
-            border-radius: 0.375rem;
-            transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-            -webkit-appearance: none;
-            appearance: none;
-        }
-.form-control {
-    display: block;
-    padding: 0.2rem 3rem 0.3rem 0.5rem;
-    margin: 0.2rem 1rem;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    color: #212529;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 1px solid #ced4da;
-    -webkit-appearance: none;
-    appearance: none;
-    border-radius: 0.375rem;
-    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-}
 
-.form-label {
-    margin-left: 1rem;
-}
-`;
+const initialState = {
+  NomProject: "Project1",
+  Visibility: "",
+  ProjectType: "",
+  DescriptionProject: "",
+  tags: [new Tag("Nodejs",  "green"), new Tag("MongoDB",  "#000000")]
+};
 
-    const initialState = {
-        NomProject: "Project1",
-        Visibility: "",
-        ProjectType: "",
-        DescriptionProject: ""
-    };
 
-    function NewProject() {
-        const [form, setForm] = useState(initialState);
-        const handleChange = (e) => {
-            setForm({...form, [e.target.name]: e.target.value});
-        };
-        const CreationNewProject = async (event) => {
-            // Make creation of project here after submission of forms
-            event.preventDefault();
-            console.log(form);
-        };
-        /*
-                            aria-describedby="passwordHelpBlock"
-                    <Form.Text id="passwordHelpBlock" muted>
-                    choisissez le nom du projet.
-                </Form.Text>
-         */
+function NewProject() {
+  const [form, setForm] = useState(initialState);
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log(form);
+    const { NomProject, Visibility, ProjectType, DescriptionProject, tags } = form;
+    const URL = "http://localhost:area5000/auth";
+    //window.location.reload();
 
-        /*
-                    <FloatingLabel
-                    controlId="floatingInput"
-                    label="Project's name"
-                    className="mb-3" >
-                    <Form.Control
-                        type="text"
-                        defaultValue="Project1"
-                        placeholder="nameExample"
-                    />
-                    </FloatingLabel>
-         */
-        return (
-            <>
-                <style> {CSSNewProject} </style>
-                <h1>Creation of new project</h1>
+  };
 
-                <Form onSubmit={CreationNewProject}>
-                    <Form.Label htmlFor="NomProject">Nom </Form.Label>
-                    <Form.Control
-                        type="text"
-                        name="NomProject"
-                        id="NomProject"
-                        onChange={handleChange}
-                        defaultValue="Project1"
-                    />
+  const RecupSelectedTags = (tags) => {
+    form.tags = tags;
+    console.log(form.tags);
+  };
 
-                    <Form.Select aria-label="Visibility"
-                                 name="Visibility"
-                                 onChange={handleChange}
-                                 required>
-                        <option>Choose the visibility ↓</option>
-                        <option value="private">Private</option>
-                        <option value="public">Public</option>
-                    </Form.Select>
+  return (
+    <>
+      <div className="auth__form-container">
+        <div className="auth__form-container_fields">
+          <div className="auth__form-container_fields-content">
+            <h1 style={{ color: "darkorange" }}>Creation of a new project</h1>
+            <form onSubmit={handleSubmit}>
+              <div className="auth__form-container_fields-content_input">
+                <label htmlFor="NomProject">Project name</label>
+                <input
+                  name="NomProject"
+                  type="text"
+                  placeholder="Project name"
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              <div className="auth__form-container_fields-content_input">
+                <label htmlFor="Description">Description</label>
+                <input
+                  name="Description"
+                  type="textarea"
+                  placeholder="Description"
+                  onChange={handleChange}
+                  required
+                />
+              </div>
 
-                    <Form.Select aria-label="ProjectType"
-                                 name="ProjectType"
-                                 onChange={handleChange}
-                                 required>
-                        <option>Choose the type of project ↓</option>
-                        <option value="code">Code</option>
-                        <option value="research">Research</option>
-                    </Form.Select>
+              <Form.Select
+                aria-label="Visibility"
+                name="Visibility"
+                onChange={handleChange}
+                required
+              >
+                <option value="">Choose the visibility</option>
+                <option value="private">Private</option>
+                <option value="public">Public</option>
+              </Form.Select>
 
-                    <Form.Label htmlFor="DescriptionProject">Description</Form.Label>
+              <Form.Select
+                aria-label="ProjectType"
+                aria-labelledby="ProjectType"
+                name="ProjectType"
+                onChange={handleChange}
+                required
+              >
+                <option value="">Choose the project's type</option>
+                <option value="code">Code</option>
+                <option value="research">Research</option>
+              </Form.Select>
+
+              <TagsInput selectedTags={RecupSelectedTags}
+                         tagsColor={Tag_NameOrColor(form.tags,"color")}
+                         tagsName={Tag_NameOrColor(form.tags,"name")} />
+
+              <div className="auth__form-container_fields-content_button">
+                <button type="submit"> Create new project </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div className="auth__form-container_image">
+          <img src={ProjectIcon} alt="Create a project" />
+        </div>
+      </div>
+    </>
+  );
+  /*
+                    TextArea a config intéressante:
+                        <Form.Label htmlFor="DescriptionProject">Description</Form.Label>
                     <Form.Control
                         as="textarea"
                         id="DescriptionProject"
@@ -124,13 +110,7 @@ const CSSNewProject = `
                         placeholder="Leave a comment here"
                         style={{height: '100px'}}
                     />
-
-                    <Button type="submit">Submit form</Button>
-                </Form>
-
-            </>
-
-        );
-    }
+     */
+}
 
 export default NewProject;

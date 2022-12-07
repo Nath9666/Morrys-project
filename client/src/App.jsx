@@ -3,9 +3,10 @@ import { StreamChat } from "stream-chat";
 import { ChannelList, Chat } from "stream-chat-react";
 import Cookies from "universal-cookie";
 
-import {ChanelListContainer, ChannelConainer, Auth, NewProject, NewProject_fromAuthent} from "./compenents";
+import {ChanelListContainer, ChannelConainer, Auth, NewProject} from "./compenents";
 
 import "./App.css";
+import "./Project.css"
 
 const cookies = new Cookies();
 
@@ -41,11 +42,13 @@ function App() {
               </Chat>
               <button>Button</button>
           </div>
+
+          <NewProject/>
      */
 
   return (
       <>
-          <NewProject_fromAuthent></NewProject_fromAuthent>
+          <NewProject/>
       </>
 
 

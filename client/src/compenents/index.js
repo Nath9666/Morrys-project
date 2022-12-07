@@ -11,5 +11,4 @@ export { default as EditChannel } from "./EditChannel";
 export { default as UserList } from "./UserList";
 
 export { default as NewProject } from "./NewProject";
-export { default as NewProject_fromAuthent } from "./NewProject_fromAuthent";
 export { default as TagsInput } from "./TagsInput";

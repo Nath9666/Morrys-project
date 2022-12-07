@@ -1,0 +1,121 @@
+@import url("https://fonts.googleapis.com/css?family=Overpass");
+
+/* ======= For new project */
+
+.form-select {
+    display: block;
+    width: 50%;
+    padding: 0.2rem 3rem 0.3rem 0.5rem;
+    margin: 1rem 0;
+    -moz-padding-start: calc(.75rem - 3px);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 16px 12px;
+    border: 1px solid #ced4da;
+    border-radius: 0.375rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+/* ======= for TagInput */
+
+* {
+    box-sizing: border-box;
+    font-family: "Overpass", sans-serif;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Overpass", sans-serif;
+}
+
+/*
+Pour bordure grise:
+    border: 1px solid rgb(214, 216, 218);
+    border-radius: 6px;
+ */
+
+.tags-input {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    min-height: 48px;
+    width: 480px;
+    padding: 0 8px;
+    border: none;
+
+}
+.tags-input:focus-within {
+    border: 1px solid #0052cc;
+}
+
+#Tag-inputs {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.NameOfColor{
+    margin-top: 5%;
+}
+#Tags-input-name{
+    flex: 0.5 1 auto;
+}
+#NameOfTag{
+    width: 95%;
+}
+
+#tags {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 8px 0 0 0;
+}
+
+.tag {
+    width: auto;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    padding: 0 8px;
+    font-size: 14px;
+    list-style: none;
+    border-radius: 6px;
+    margin: 0 8px 8px 0;
+    background: #0052cc;
+}
+.tag .tag-title {
+    margin-top: 3px;
+}
+
+.tag .tag-close-icon {
+    display: block;
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+    text-align: center;
+    font-size: 14px;
+    margin-left: 8px;
+    color: #0052cc;
+    border-radius: 50%;
+    background: #fff;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 567px) {
+    .tags-input {
+        width: calc(100vw - 32px);
+    }
+}

@@ -1,171 +1,119 @@
 // TagsInput.jsx
 import React from 'react'
 
-const CSSForTagInput = `
-@import url("https://fonts.googleapis.com/css?family=Overpass");
-
-* {
-  box-sizing: border-box;
-  font-family: "Overpass", sans-serif;
-}
-
-body {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: "Overpass", sans-serif;
-}
-
-.tags-input {
-  display: flex;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  min-height: 48px;
-  width: 480px;
-  padding: 0 8px;
-  border: 1px solid rgb(214, 216, 218);
-  border-radius: 6px;
-  &:focus-within {
-    border: 1px solid #0052cc;
-  }
-}
-  input {
-    flex: 1;
-    border: none;
-    height: 46px;
-    font-size: 14px;
-    padding: 4px 0 0 0;
-    &:focus {
-      outline: transparent;
+class Tag{
+    nameTag;
+    color;
+    constructor(name, color){
+        this.nameTag = name;
+        this.color = color;
     }
-  }
-
-
-#tags {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 0;
-  margin: 8px 0 0 0;
 }
 
-.tag {
-  width: auto;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  padding: 0 8px;
-  font-size: 14px;
-  list-style: none;
-  border-radius: 6px;
-  margin: 0 8px 8px 0;
-  background: #0052cc;
-  }
-  .tag .tag-title {
-    margin-top: 3px;
-  }
-  
-  .tag .tag-close-icon {
-    display: block;
-    width: 16px;
-    height: 16px;
-    line-height: 16px;
-    text-align: center;
-    font-size: 14px;
-    margin-left: 8px;
-    color: #0052cc;
-    border-radius: 50%;
-    background: #fff;
-    cursor: pointer;
-  }
+function Tag_NameOrColor(Tags, TypeTagDatas){
+    let TagsValues = []
+    switch(TypeTagDatas){
+        case "color": {
+            Tags.forEach(tag => (TagsValues.push(tag.color)))
+            break
+        }
+        case "name": {
+            Tags.forEach(tag => (TagsValues.push(tag.nameTag)))
+            break
+        }
+        default: console.log("Incorrect type of tag's data")
+    }
+    return TagsValues;
 
-@media screen and (max-width: 567px) {
-  .tags-input {
-    width: calc(100vw - 32px);
-  }
-}`
+}
 
 function TagsInput(props) {
-    const [tags, setTags] = React.useState(props.tags);
+    const [tagsColor, setTagsColor] = React.useState(props.tagsColor);
+    const [tagsName, setTagsName] = React.useState(props.tagsName);
+
+    function composedTagWithHisProps(){
+        let TagsWithProps = [];
+        for (let i = 0; i < tagsName.length; i++) {
+            TagsWithProps.push(new Tag(tagsName[i], tagsColor[i]))
+        }
+        return TagsWithProps;
+    }
+    const [tags, setTags] = React.useState(composedTagWithHisProps());
+
     const removeTags = indexToRemove => {
         setTags([...tags.filter((_, index) => index !== indexToRemove)]);
+        props.selectedTags([...tags.filter((_, index) => index !== indexToRemove)]);
     };
-    const addTags = event => {
-        if (event.target.value !== "") {
-            setTags([...tags, event.target.value]);
-            props.selectedTags([...tags, event.target.value]);
+
+    const SubmitNewTag = event => {
+        if (!event.target.value.startsWith(" ")){
+            const newTag = new Tag(tagsName[tagsName.length-1], tagsColor[tagsColor.length-1])
+            setTags([...tags,  newTag]);
+            props.selectedTags([...tags, newTag]);
             event.target.value = "";
         }
     };
+
     return (
         <>
-        <style>{CSSForTagInput}</style>
-            <label htmlFor="tag-input">List of tags</label>
-            <div id="Tags-input" className="tags-input">
-            <ul id="tags">
-                {tags.map((tag, index) => (
-                    <li key={index} className="tag">
-                        <span className='tag-title'>{tag}</span>
-                        <span className='tag-close-icon'
-                              onClick={() => removeTags(index)}
-                        >x</span>
-                    </li>
-                ))}
-            </ul>
-            <input
-                type="text"
-                onKeyUp={event => event.key === " " ? addTags(event) : null}
-                placeholder="Press enter to add tags"
-            />
-        </div>
+            <label htmlFor="Tag-Print">List of Tags</label>
+            <div id="Tag-Print" className="tags-input">
+                <ul id="tags">
+                    {tags.map((tag, index) => (
+                        <li key={index} style={{background: tag.color}} className="tag">
+                            <span className='tag-title'>{tag.nameTag}</span>
+                            <span className='tag-close-icon'
+                                  onClick={() => removeTags(index)}
+                            >x</span>
+                        </li>
+
+                    ))}
+                </ul>
+
+            </div>
+
+            <div id="Tag-inputs">
+                <div id="Tags-input-name" className="auth__form-container_fields-content_input">
+                    <label htmlFor="NameOfTag">New tag</label>
+                    <input
+                        name="NameOfTag"
+                        id="NameOfTag"
+                        onKeyUp={event => event.key === " " ? SubmitNewTag(event) : null}
+                        onChange={e => setTagsName([...tagsName, e.target.value])}
+                        type="text"
+                        placeholder="Press Space to add tag"
+                    />
+                </div>
+                <input
+                    id="Tags-input-color"
+                    className="NameOfColor"
+                    type="color"
+                    onChange={e => setTagsColor([...tagsColor, e.target.value])}
+                />
+            </div>
         </>
     );
 }
+
 /*
+- - - - Peut-être plus stable selon LL:
+    const [tagsObjects, setTagsObjects] = React.useState(tags.map((tag, index) => ({ind: index, tagEl: tag})))
 
-const [tag, setTag] = useState(initialState_NewTag)
+                {tagsObjects.map((tagsObjects) => (
+                    <li style={{background: tagsObjects.tagEl.color}} key={tagsObjects.ind} className="tag">
+                        <span className='tag-title'>{tagsObjects.tagEl.nameTag}</span>
+                        <span className='tag-close-icon'
+                              onClick={() => removeTags(tagsObjects.ind)}
+                        >x</span>
+                    </li>
 
-    const handleChange = (e) => {
-        setTag({ ...tag, [e.target.name]: e.target.value });
-    };
+                ))}
+            setTagsObjects([...tagsObjects,  {ind: tagsObjects.length ,tagEl: newTag}])
 
-        const SubmitNewTag = event => {
-        if (event.target.value !== "") {
-            setTags([...tags,  event.target.value]);
-            props.selectedTags([...tags, event.target.value]);
-            console.log(tags)
-            event.target.value = "";
-        }
-    };
-
-    const SubmitNewTag2 = () => {
-        if (tag.value !== "") {
-            setTags([...tags,  tag.value]);
-            props.selectedTags([...tags, tag.value]);
-            console.log(tags)
-            tag.value = "";
-        }
-    };
-
- <div className="FormOfNewTag">
-                <form onSubmit={SubmitNewTag2}>
-                    <input
-                        name="NameOfTag"
-                        onChange={handleChange}
-                        type="text"
-                        placeholder="Press enter to add tags"
-                    />
-                    <input
-                        name="NameOfColor"
-                        type="color"
-                        onChange={handleChange}
-                    />
-                    <button type="submit">ADD</button>
-                </form>
-            </div>
  */
 
 
+
 export default TagsInput;
+export {Tag, Tag_NameOrColor};
+

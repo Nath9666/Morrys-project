@@ -2,7 +2,7 @@ import React from 'react';
 import {ComponentPreview, Previews} from '@react-buddy/ide-toolbox';
 import {PaletteTree} from './palette';
 import Auth from "../compenents/Auth";
-import NewProject_fromAuthent from "../compenents/NewProject_fromAuthent";
+import NewProject from "../compenents/NewProject";
 import {SearchIcon} from "../assets";
 import TagsInput from "../compenents/TagsInput";
 
@@ -13,8 +13,8 @@ const ComponentPreviews = () => {
                 <Auth/>
             </ComponentPreview>
             <ComponentPreview
-                path="/NewProject_fromAuthent">
-                <NewProject_fromAuthent/>
+                path="/NewProject">
+                <NewProject/>
             </ComponentPreview>
             <ComponentPreview path="/SearchIcon">
                 <SearchIcon/>
