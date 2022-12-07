@@ -10,5 +10,7 @@ export { default as CreateChannel } from "./CreateChannel";
 export { default as EditChannel } from "./EditChannel";
 export { default as UserList } from "./UserList";
 
+export { default as Welcome } from "./Welcome";
+export { default as Background } from "./Background";
 export { default as NewProject } from "./NewProject";
 export { default as TagsInput } from "./TagsInput";

@@ -3,6 +3,7 @@ import Cookies from "universal-cookie";
 import axios from "axios";
 
 import { SignIcon } from "../assets";
+import { Background } from "./";
 
 const cookies = new Cookies();
 
@@ -26,7 +27,6 @@ const Auth = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log(form);
     const { fullName, username, password, phoneNumber, avatarURL } = form;
 
     const URL = "http://localhost:5000/auth";
@@ -148,7 +148,7 @@ const Auth = () => {
         </div>
       </div>
       <div className="auth__form-container_image">
-        <img src={SignIcon} alt="sign in" />
+        <Background color1={"#ffae00"} color2={"#00FFF6"} />
       </div>
     </div>
   );

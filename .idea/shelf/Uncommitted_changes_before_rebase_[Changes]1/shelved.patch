@@ -1,0 +1,192 @@
+Index: client/src/index.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/client/src/index.js b/client/src/index.js
+--- a/client/src/index.js	
++++ b/client/src/index.js	
+@@ -2,4 +2,11 @@
+ import ReactDOM from "react-dom";
+ 
+ import App from "./App";
+-ReactDOM.render(<App />, document.getElementById("root"));
++import {DevSupport} from "@react-buddy/ide-toolbox";
++import {ComponentPreviews, useInitial} from "./dev";
++
++ReactDOM.render(<DevSupport ComponentPreviews={ComponentPreviews}
++                            useInitialHook={useInitial}
++>
++    <App/>
++</DevSupport>, document.getElementById("root"));
+Index: client/src/dev/index.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/client/src/dev/index.js b/client/src/dev/index.js
+new file mode 100644
+--- /dev/null	
++++ b/client/src/dev/index.js	
+@@ -0,0 +1,9 @@
++import React from "react";
++import {useInitial} from "./useInitial"
++
++const ComponentPreviews = React.lazy(() => import("./previews"));
++
++export {
++    ComponentPreviews,
++    useInitial
++}
+\ No newline at end of file
+Index: client/src/App.jsx
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/client/src/App.jsx b/client/src/App.jsx
+--- a/client/src/App.jsx	
++++ b/client/src/App.jsx	
+@@ -5,7 +5,6 @@
+ 
+ import { ChanelListContainer, ChannelConainer, Auth } from "./compenents";
+ 
+-import "stream-chat-react/dist/css/index.css";
+ import "./App.css";
+ 
+ const cookies = new Cookies();
+@@ -30,30 +29,17 @@
+ }
+ 
+ function App() {
+-  const [createType, setCreateType] = useState("");
+-  const [isCreating, setIsCreating] = useState(false);
+-  const [isEditing, setIsEditing] = useState(false);
+-
++  console.log(authToken);
+   if (!authToken) return <Auth />;
+ 
+   return (
+     <div className="app__wrapper">
+       <Chat client={client} theme="team light">
+-        <ChanelListContainer
+-          isCreating={isCreating}
+-          setIsCreating={setIsCreating}
+-          setCreateType={setCreateType}
+-          setIsEditing={setIsEditing}
+-        />
++        <ChanelListContainer />
+ 
+-        <ChannelConainer
+-          isCreating={isCreating}
+-          setIsCreating={setIsCreating}
+-          isEditing={isEditing}
+-          setIsEditing={setIsEditing}
+-          createType={createType}
+-        />
++        <ChannelConainer />
+       </Chat>
++        <button>Button</button>
+     </div>
+   );
+ }
+Index: client/src/dev/previews.jsx
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/client/src/dev/previews.jsx b/client/src/dev/previews.jsx
+new file mode 100644
+--- /dev/null	
++++ b/client/src/dev/previews.jsx	
+@@ -0,0 +1,12 @@
++import React from 'react';
++import {Previews} from '@react-buddy/ide-toolbox';
++import {PaletteTree} from './palette';
++
++const ComponentPreviews = () => {
++    return (
++        <Previews palette={<PaletteTree/>}>
++        </Previews>
++    );
++};
++
++export default ComponentPreviews;
+\ No newline at end of file
+Index: client/src/dev/palette.jsx
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/client/src/dev/palette.jsx b/client/src/dev/palette.jsx
+new file mode 100644
+--- /dev/null	
++++ b/client/src/dev/palette.jsx	
+@@ -0,0 +1,24 @@
++import React from 'react';
++import {
++    Category,
++    Component,
++    Variant,
++    Palette,
++} from '@react-buddy/ide-toolbox';
++
++export const PaletteTree = () => (
++    <Palette>
++        <Category name="HTML">
++            <Component name="a">
++                <Variant requiredParams={['href']}>
++                    <a>Link</a>
++                </Variant>
++            </Component>
++            <Component name="button">
++                <Variant>
++                    <button>Button</button>
++                </Variant>
++            </Component>
++        </Category>
++    </Palette>
++);
+Index: client/package.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/client/package.json b/client/package.json
+--- a/client/package.json	
++++ b/client/package.json	
+@@ -13,7 +13,8 @@
+     "stream-chat": "^8.1.2",
+     "stream-chat-react": "^10.4.1",
+     "universal-cookie": "^4.0.4",
+-    "web-vitals": "^2.1.4"
++    "web-vitals": "^2.1.4",
++    "@react-buddy/ide-toolbox": "^2.3.1"
+   },
+   "scripts": {
+     "start": "react-scripts start",
+Index: client/src/dev/useInitial.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/client/src/dev/useInitial.js b/client/src/dev/useInitial.js
+new file mode 100644
+--- /dev/null	
++++ b/client/src/dev/useInitial.js	
+@@ -0,0 +1,15 @@
++import {useState} from 'react';
++
++export const useInitial = () => {
++    const [status, setStatus] = useState({
++        loading: false,
++        error: false,
++    });
++    /*
++      Implement hook functionality here.
++      If you need to execute async operation, set loading to true and when it's over, set loading to false.
++      If you caught some errors, set error status to true.
++      Initial hook is considered to be successfully completed if it will return {loading: false, error: false}.
++    */
++    return status;
++};

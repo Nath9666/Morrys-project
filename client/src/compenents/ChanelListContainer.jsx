@@ -3,7 +3,7 @@ import { ChannelList, useChatContext } from "stream-chat-react";
 import Cookies from "universal-cookie";
 
 import { ChannelSearch, TeamChannelList, TeamChannelPreview } from "./";
-import { HospitalIcon, LogoutIcon } from "../assets";
+import { MorryIcon, LogoutIcon } from "../assets";
 
 const cookies = new Cookies();
 
@@ -11,7 +11,7 @@ const SideBar = ({ logout }) => (
   <div className="channel-list__sidebar">
     <div className="channel-list__sidebar__icon1">
       <div className="icon1__inner">
-        <img src={HospitalIcon} alt="Hospital" width={30} />
+        <img src={MorryIcon} alt="Application" width={60} />
       </div>
     </div>
     <div className="channel-list__sidebar__icon2">
@@ -23,8 +23,8 @@ const SideBar = ({ logout }) => (
 );
 
 const CompanyHeader = () => (
-  <div className="channel-list__header">
-    <p className="channel-list__header__text">Morrys</p>
+  <div className="p-4 ">
+    <p className="text-lg font-normal text-white">Morrys</p>
   </div>
 );
 
