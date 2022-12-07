@@ -1,8 +1,7 @@
 // TagsInput.jsx
 import React from 'react'
 
-const CSSForTagInput = `Pug SCSS BabelResult Skip Results Iframe
-EDIT ON
+const CSSForTagInput = `
 @import url("https://fonts.googleapis.com/css?family=Overpass");
 
 * {
@@ -30,6 +29,7 @@ body {
   &:focus-within {
     border: 1px solid #0052cc;
   }
+}
   input {
     flex: 1;
     border: none;
@@ -40,7 +40,7 @@ body {
       outline: transparent;
     }
   }
-}
+
 
 #tags {
   display: flex;
@@ -86,10 +86,6 @@ body {
     width: calc(100vw - 32px);
   }
 }`
-const selectedTags = tags => {
-    console.log(tags);
-};
-const props = {selectedTags: selectedTags,  tags:['Nodejs', 'MongoDB'] }
 
 function TagsInput(props) {
     const [tags, setTags] = React.useState(props.tags);
@@ -106,7 +102,8 @@ function TagsInput(props) {
     return (
         <>
         <style>{CSSForTagInput}</style>
-        <div className="tags-input">
+            <label htmlFor="tag-input">List of tags</label>
+            <div id="Tags-input" className="tags-input">
             <ul id="tags">
                 {tags.map((tag, index) => (
                     <li key={index} className="tag">
@@ -119,13 +116,56 @@ function TagsInput(props) {
             </ul>
             <input
                 type="text"
-                onKeyUp={event => event.key === "Enter" ? addTags(event) : null}
+                onKeyUp={event => event.key === " " ? addTags(event) : null}
                 placeholder="Press enter to add tags"
             />
         </div>
         </>
     );
 }
+/*
+
+const [tag, setTag] = useState(initialState_NewTag)
+
+    const handleChange = (e) => {
+        setTag({ ...tag, [e.target.name]: e.target.value });
+    };
+
+        const SubmitNewTag = event => {
+        if (event.target.value !== "") {
+            setTags([...tags,  event.target.value]);
+            props.selectedTags([...tags, event.target.value]);
+            console.log(tags)
+            event.target.value = "";
+        }
+    };
+
+    const SubmitNewTag2 = () => {
+        if (tag.value !== "") {
+            setTags([...tags,  tag.value]);
+            props.selectedTags([...tags, tag.value]);
+            console.log(tags)
+            tag.value = "";
+        }
+    };
+
+ <div className="FormOfNewTag">
+                <form onSubmit={SubmitNewTag2}>
+                    <input
+                        name="NameOfTag"
+                        onChange={handleChange}
+                        type="text"
+                        placeholder="Press enter to add tags"
+                    />
+                    <input
+                        name="NameOfColor"
+                        type="color"
+                        onChange={handleChange}
+                    />
+                    <button type="submit">ADD</button>
+                </form>
+            </div>
+ */
 
 
 export default TagsInput;
