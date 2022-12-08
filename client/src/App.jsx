@@ -42,8 +42,6 @@ function App() {
 
   if (!authToken) return <Welcome />;
 
-  <Auth />;
-
   return (
     <div className="app__wrapper">
       <Chat client={client} theme="team light">
