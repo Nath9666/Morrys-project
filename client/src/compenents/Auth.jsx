@@ -60,8 +60,8 @@ const Auth = () => {
   };
 
   return (
-    <div className="auth__form-container">
-      <div className="auth__form-container_fields">
+    <div className="relative px-6 lg:px-8">
+      <div className="mx-auto max-w-3xl pt-4 pb-32 sm:pt-40 sm:pb-30">
         <div className="auth__form-container_fields-content">
           <p>{isSignup ? "Sign Up" : "Sign In"}</p>
           <form onSubmit={handleSubmit}>
@@ -146,9 +146,6 @@ const Auth = () => {
             </p>
           </div>
         </div>
-      </div>
-      <div className="auth__form-container_image">
-        <Background color1={"#ffae00"} color2={"#00FFF6"} />
       </div>
     </div>
   );

@@ -5,20 +5,23 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { MorryIcon } from "../assets";
 import { Auth, Background } from "./";
 
-const MainPage = () => {
+const MainPage = ({ setMenu }) => {
   return (
     <>
       <div className="relative px-6 lg:px-8">
         <div className="mx-auto max-w-3xl pt-20 pb-32 sm:pt-48 sm:pb-40">
           <div>
             <div className="hidden sm:mb-8 sm:flex sm:justify-center">
-              <div className="relative overflow-hidden rounded-full py-1.5 px-4 text-sm leading-6 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
+              <div
+                className="relative overflow-hidden rounded-full py-1.5 px-4 text-sm leading-6 ring-1 ring-gray-900/10 hover:ring-gray-900/20"
+                onClick={() => setMenu("features")}
+              >
                 <span className="text-gray-600">
                   Announcing our next round of funding.{" "}
-                  <a href="#" className="font-semibold text-orange-600">
+                  <span className="font-semibold text-orange-600">
                     <span className="absolute inset-0" aria-hidden="true" />
                     Read more <span aria-hidden="true">&rarr;</span>
-                  </a>
+                  </span>
                 </span>
               </div>
             </div>
@@ -199,17 +202,18 @@ const FeaturesMain = () => {
   );
 };
 
-const ChooseComponent = ({ menu }) => {
+const ChooseComponent = ({ menu, setMenu }) => {
   switch (menu) {
     case "features":
       return <FeaturesMain />;
-
+    case "login":
+      return <Auth />;
     default:
-      return <MainPage />;
+      return <MainPage setMenu={setMenu} />;
   }
 };
 
-const NavBar = ({ setMobileMenuOpen, setMenu, mobileMenuOpen, setLog }) => {
+const NavBar = ({ setMobileMenuOpen, setMenu, mobileMenuOpen }) => {
   return (
     <main>
       <div className="px-6 pt-6 lg:px-8">
@@ -228,13 +232,13 @@ const NavBar = ({ setMobileMenuOpen, setMenu, mobileMenuOpen, setLog }) => {
               <button
                 type="button"
                 className="inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
-                onClick={() => setMobileMenuOpen(true)}
+                onClick={() => setMenu("login")}
               >
                 <span className="sr-only">Open main menu</span>
                 <Bars3Icon className="h-6 w-6" aria-hidden="true" />
               </button>
             </div>
-            <div className="hidden lg:flex lg:min-w-0 lg:flex-1 lg:justify-center lg:gap-x-12">
+            <div className="hidden lg:flex lg:min-w-0 lg:flex-1 lg:justify-center lg:gap-x-12 mt-2">
               {navigation.map((item) => (
                 <p
                   key={item.name}
@@ -248,9 +252,9 @@ const NavBar = ({ setMobileMenuOpen, setMenu, mobileMenuOpen, setLog }) => {
             <div className="hidden lg:flex lg:min-w-0 lg:flex-1 lg:justify-end cursor-pointer">
               <p
                 href="#"
-                className="inline-block rounded-lg px-3 py-1.5 text-sm font-semibold leading-6 text-gray-900 shadow-sm ring-1 ring-gray-900/10 hover:ring-gray-900/20"
+                className="inline-block rounded-lg px-3 py-1.5 text-sm font-semibold leading-6 text-gray-900 shadow-sm ring-1 ring-orange-600 hover:ring-gray-900/20  hover:bg-orange-600"
                 onClick={() => {
-                  setLog((prevState) => !prevState);
+                  setMenu("login");
                 }}
               >
                 Log in
@@ -299,10 +303,8 @@ const NavBar = ({ setMobileMenuOpen, setMenu, mobileMenuOpen, setLog }) => {
                   <div className="py-6 cursor-pointer">
                     <p
                       href="#"
-                      className="inline-block rounded-lg px-3 py-1.5 text-sm font-semibold leading-6 text-gray-900 shadow-sm ring-1 ring-gray-900/10 hover:ring-gray-900/20"
-                      onClick={() => {
-                        setLog((prevState) => !prevState);
-                      }}
+                      className="inline-block rounded-lg px-3 py-1.5 text-sm font-semibold leading-6 text-orange-600 shadow-sm ring-1 ring-gray-900/10 hover:ring-gray-900/20 hover:bg-orange-600"
+                      onClick={() => setMenu("login")}
                     >
                       Log in
                     </p>
@@ -329,8 +331,6 @@ export default function Welcome() {
   const [log, setLog] = useState(false);
   const [menu, setMenu] = useState("main");
 
-  if (log) return <Auth />;
-
   return (
     <div className="isolate bg-white">
       <Background color1={"#ffae00"} color2={"#00FFF6"} />
@@ -341,7 +341,7 @@ export default function Welcome() {
         mobileMenuOpen={mobileMenuOpen}
       />
 
-      <ChooseComponent menu={menu} />
+      <ChooseComponent menu={menu} setMenu={setMenu} />
     </div>
   );
 }
