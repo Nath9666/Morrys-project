@@ -40,12 +40,13 @@ if (authToken) {
 // TODO: change the color to orange
 // TODO: change the content loyout when you click on the button
 // TODO: put the image of moris
+
 // TODO: creer les route pour acceder au différente pages
 // TODO: faire la bases de données sur les projet et les taches
-//Todo: post et get des 2, plus ou en ai ethan sur les formulaires
-//todo: ne pls berde de temps sur le css et se concertrer sur la base et la relation entre les pages
-//todo : terminer les videos pour voir comment il implemente la relation entre les personnes
-//todo : dans la page search faire un get de tout les projet public
+// TODO: post et get des 2, plus ou en ai ethan sur les formulaires
+// TODO: ne pls berde de temps sur le css et se concertrer sur la base et la relation entre les pages
+// TODO : terminer les videos pour voir comment il implemente la relation entre les personnes
+// TODO : dans la page search faire un get de tout les projet public
 
 function App() {
   const [createType, setCreateType] = useState("");
@@ -351,7 +352,6 @@ function App() {
         <div class="relative hidden h-screen my-4 ml-4 shadow-lg lg:block w-80">
           <div class="h-full bg-white rounded-2xl dark:bg-gray-700">
             <div class="flex items-center justify-center pt-6"></div>
-
             <NavBar />
           </div>
         </div>
@@ -359,9 +359,9 @@ function App() {
           <header class="z-40 items-center w-full h-16 bg-white shadow-lg dark:bg-gray-700 rounded-2xl">
             <div class="relative z-20 flex flex-col justify-center h-full px-3 mx-auto flex-center">
               <div class="relative flex items-center w-full pl-1 lg:max-w-68 sm:pr-2 sm:ml-0">
-                <div class="container relative left-0 z-50 flex w-3/4 h-auto h-full">
+                <div class="container relative left-0 z-50 flex w-3/4 h-full">
                   <div class="relative flex items-center w-full h-full lg:w-64 group">
-                    <div class="absolute z-50 flex items-center justify-center block w-auto h-10 p-3 pr-2 text-sm text-gray-500 uppercase cursor-pointer sm:hidden">
+                    <div class="absolute z-50 flex items-center justify-center w-auto h-10 p-3 pr-2 text-sm text-gray-500 uppercase cursor-pointer sm:hidden">
                       <svg
                         fill="none"
                         class="relative w-5 h-5"
@@ -411,7 +411,7 @@ function App() {
                   NameCreator="Nathan"
                   Type="NULL"
                   Priority="Hight"
-                  TaskDone={20}
+                  TaskDone={25}
                   Tasks={50}
                   Duedate={"18 JUNE"}
                 />
