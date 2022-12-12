@@ -12,16 +12,18 @@ class Tag{
 
 function Tag_NameOrColor(Tags, TypeTagDatas){
     let TagsValues = []
-    switch(TypeTagDatas){
-        case "color": {
-            Tags.forEach(tag => (TagsValues.push(tag.color)))
-            break
+    if(Tags){
+        switch(TypeTagDatas){
+            case "color": {
+                Tags.forEach(tag => (TagsValues.push(tag.color)))
+                break
+            }
+            case "name": {
+                Tags.forEach(tag => (TagsValues.push(tag.nameTag)))
+                break
+            }
+            default: console.log("Incorrect type of tag's data")
         }
-        case "name": {
-            Tags.forEach(tag => (TagsValues.push(tag.nameTag)))
-            break
-        }
-        default: console.log("Incorrect type of tag's data")
     }
     return TagsValues;
 

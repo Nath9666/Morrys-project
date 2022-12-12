@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2c77a325-3123-4bae-bd43-ba3cf20e8412" name="Changes" comment="Fin de creation des tags (colorés), déplacement des CSS éparpillés dans Project.css">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_04_12_2022_23_36__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_04_12_2022_23_36__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_04_12_2022_23_36__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_04_12_2022_23_36__Changes_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_1.xml" afterDir="false" />
+    <list default="true" id="2c77a325-3123-4bae-bd43-ba3cf20e8412" name="Changes" comment="Merge avec server side : adaptation de App.jsx pour 2 personnes travaillant séparément">
+      <change afterPath="$PROJECT_DIR$/client/src/assets/EditElement.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/assets/ValidationIcon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/compenents/CurrentProject.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Project.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Project.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/assets/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/assets/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/compenents/NewProject.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/compenents/NewProject.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/compenents/TagsInput.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/compenents/TagsInput.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/compenents/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/compenents/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,23 +76,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ethan\OneDrive - Efrei\L3-S1\L3S1-PROGRAMMATION WEB\Projet\react-project\client\src\assets" />
       <recent name="C:\Users\ethan\OneDrive - Efrei\L3-S1\L3S1-PROGRAMMATION WEB\Projet\react-project\client\src\compenents" />
     </key>
   </component>
   <component name="RunManager" selected="npm.Start client">
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="react-project" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="react-project" />
-      <option name="filePath" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="App.jsx" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="App.jsx" working-dir="$PROJECT_DIR$/client/src">
       <method v="2" />
     </configuration>
@@ -144,6 +138,8 @@
       <workItem from="1670106134398" duration="2023000" />
       <workItem from="1670193235110" duration="9968000" />
       <workItem from="1670245696612" duration="14414000" />
+      <workItem from="1670612004136" duration="11838000" />
+      <workItem from="1670786124311" duration="20651000" />
     </task>
     <task id="LOCAL-00001" summary="Demarrage branche (installation des dépendances nécessaires) + Debut conception page &quot;Creation new project&quot;. Tag en cours">
       <created>1670294974030</created>
@@ -152,7 +148,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670294974030</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Merge avec server side : adaptation de App.jsx pour 2 personnes travaillant séparément">
+      <created>1670455623941</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1670455623941</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -171,6 +174,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Demarrage branche (installation des dépendances nécessaires) + Debut conception page &quot;Creation new project&quot;. Tag en cours" />
-    <option name="LAST_COMMIT_MESSAGE" value="Demarrage branche (installation des dépendances nécessaires) + Debut conception page &quot;Creation new project&quot;. Tag en cours" />
+    <MESSAGE value="Merge avec server side : adaptation de App.jsx pour 2 personnes travaillant séparément" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge avec server side : adaptation de App.jsx pour 2 personnes travaillant séparément" />
   </component>
 </project>

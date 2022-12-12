@@ -9,3 +9,5 @@ export { default as MorryIcon } from "./MorryIcon.png";
 export { default as SignIcon } from "./signup.jpg";
 
 export {default as ProjectIcon} from "./NewProject.png"
+export {default as EditElementIcon} from "./EditElement.png"
+export {default as ValidationIcon} from "./ValidationIcon.png"

@@ -23,7 +23,6 @@
     -webkit-appearance: none;
     appearance: none;
 }
-
 /* ======= for TagInput */
 
 * {
@@ -119,3 +118,64 @@ Pour bordure grise:
         width: calc(100vw - 32px);
     }
 }
+/*
+For Current Project
+ */
+
+.Button_for_current_project, .drop-downMenus, .Element_and_ModifIcon{
+    display: flex;
+}
+
+#Element_and_ModifIcon_NomProject{
+    justify-content: center;
+}
+
+.Element_and_ModifIcon{
+    flex-direction: row;
+    align-items: center;
+    height: 20%;
+    flex: 1 1 auto;
+    margin: 1%;
+}
+
+.h1_big{
+    font-size: revert;
+    font-weight: 300;
+}
+
+.icon_edit{
+    width: 20px;
+    margin: 10% 10% 10% 15px;}
+
+#CurrProj_Nom{
+    font-size: x-large;
+    text-align: center;
+}
+
+#Textarea_CurrProject_description{
+    width: 95%;
+}
+
+#container_Textarea_CurrProject_description, #CurrProj_Type, #CurrProj_Visibility{
+    flex: 1 1 auto;
+}
+
+#icon_edit_DescriptionProject{
+    margin: 3% 10% 10% 0;
+}
+
+/*
+buttons
+ */
+
+.button_CurrProj {
+    padding: 0.3rem 1rem;
+}
+
+#button_CurrProj_dissolve {
+    background: var(--red);
+    border: 1px solid var(--red);
+}
+
+
+

@@ -13,4 +13,5 @@ export { default as UserList } from "./UserList";
 export { default as Welcome } from "./Welcome";
 export { default as Background } from "./Background";
 export { default as NewProject } from "./NewProject";
+export { default as CurrentProject } from "./CurrentProject";
 export { default as TagsInput } from "./TagsInput";

@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import { ProjectIcon } from "../assets";
 import TagsInput, {Tag, Tag_NameOrColor} from "./TagsInput";
+import CurrentProject from "./CurrentProject";
+import axios from "axios";
+import {Link} from "react-router-dom";
 
 
 const initialState = {
@@ -13,22 +16,32 @@ const initialState = {
 };
 
 
-function NewProject() {
+function NewProject(props) {
   const [form, setForm] = useState(initialState);
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
-  const handleSubmit = async (e) => {
+  const SubmitNewProject = async (e) => {
     e.preventDefault();
-    console.log(form);
     const { NomProject, Visibility, ProjectType, DescriptionProject, tags } = form;
     const URL = "http://localhost:area5000/auth";
+    console.log(form);
+    props.ManipDatasNewProject({ NomProject, Visibility, ProjectType, DescriptionProject, tags } )
+    /*
+    ENREGISTREMENT BDD
+     */
+
+    /*
+    NAVIGATION CURRENT PROJECT
+     */
+
     //window.location.reload();
 
   };
 
   const RecupSelectedTags = (tags) => {
-    form.tags = tags;
+    setForm({ ...form, tags: tags });
+    //form.tags = tags;
     console.log(form.tags);
   };
 
@@ -38,7 +51,7 @@ function NewProject() {
         <div className="auth__form-container_fields">
           <div className="auth__form-container_fields-content">
             <h1 style={{ color: "darkorange" }}>Creation of a new project</h1>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={SubmitNewProject}>
               <div className="auth__form-container_fields-content_input">
                 <label htmlFor="NomProject">Project name</label>
                 <input
@@ -49,16 +62,20 @@ function NewProject() {
                   required
                 />
               </div>
-              <div className="auth__form-container_fields-content_input">
-                <label htmlFor="Description">Description</label>
-                <input
-                  name="Description"
-                  type="textarea"
-                  placeholder="Description"
-                  onChange={handleChange}
-                  required
+
+              <Form.Group className="mb-3  auth__form-container_fields-content_input" controlId="Textarea_NewProject_description">
+                <Form.Label>Description</Form.Label>
+                <Form.Control
+                    as="textarea"
+                    rows={3}
+                    name="DescriptionProject"
+                    className={"Textarea"}
+                    type="textarea"
+                    placeholder="Description of project"
+                    onChange={handleChange}
+                    required
                 />
-              </div>
+              </Form.Group>
 
               <Form.Select
                 aria-label="Visibility"
@@ -97,6 +114,7 @@ function NewProject() {
           <img src={ProjectIcon} alt="Create a project" />
         </div>
       </div>
+      {console.log(form)}
     </>
   );
   /*
