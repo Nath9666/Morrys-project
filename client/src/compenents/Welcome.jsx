@@ -214,6 +214,8 @@ const ChooseComponent = ({ menu, setMenu }) => {
 };
 
 const NavBar = ({ setMobileMenuOpen, setMenu, mobileMenuOpen }) => {
+  // TODO : center en Y les mot dans la barre de nav
+  // TODO : si hover button changement de couleur et pas suivant les balise textes
   return (
     <main>
       <div className="px-6 pt-6 lg:px-8">
