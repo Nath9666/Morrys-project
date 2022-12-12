@@ -37,6 +37,16 @@ if (authToken) {
   );
 }
 
+// TODO: change the color to orange
+// TODO: change the content loyout when you click on the button
+// TODO: put the image of moris
+// TODO: creer les route pour acceder au différente pages
+// TODO: faire la bases de données sur les projet et les taches
+//Todo: post et get des 2, plus ou en ai ethan sur les formulaires
+//todo: ne pls berde de temps sur le css et se concertrer sur la base et la relation entre les pages
+//todo : terminer les videos pour voir comment il implemente la relation entre les personnes
+//todo : dans la page search faire un get de tout les projet public
+
 function App() {
   const [createType, setCreateType] = useState("");
   const [isCreating, setIsCreating] = useState(false);
@@ -340,11 +350,8 @@ function App() {
       <div class="flex items-start justify-between">
         <div class="relative hidden h-screen my-4 ml-4 shadow-lg lg:block w-80">
           <div class="h-full bg-white rounded-2xl dark:bg-gray-700">
-            <div class="flex items-center justify-center pt-6">
-              {/*TODO: put the image of moris */}
-            </div>
-            {/* TODO: change the color to orange */}
-            {/* TODO: change the content loyout when you click on the button */}
+            <div class="flex items-center justify-center pt-6"></div>
+
             <NavBar />
           </div>
         </div>
