@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { StreamChat } from "stream-chat";
-
 import { ChannelList, Chat } from "stream-chat-react";
 import Cookies from "universal-cookie";
-import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 
 import {
   ChanelListContainer,
@@ -12,7 +11,15 @@ import {
   Background,
 } from "./compenents";
 
-import { Welcome, Features, Auth, DashBoard } from "./pages";
+import {
+  Welcome,
+  Features,
+  Auth,
+  DashBoard,
+  Search,
+  Projects,
+  Project,
+} from "./pages";
 
 import "stream-chat-react/dist/css/index.css";
 import "./App.css";
@@ -40,13 +47,11 @@ if (authToken) {
   );
 }
 
-// TODO: change the content loyout when you click on the button
-
 // TODO: faire la bases de données sur les tâches
 // TODO: post et get les taches, plus ou en ai ethan sur les formulaires
 // TODO: ne pls berde de temps sur le css et se concertrer sur la base et la relation entre les pages
 // TODO : terminer les videos pour voir comment il implemente la relation entre les personnes
-// TODO : dans la page search faire un get de tout les projet public
+//todo : met un put pour editer les projets et les taches
 
 function App() {
   const [createType, setCreateType] = useState("");
@@ -208,12 +213,14 @@ function App() {
           <div class="flex items-start justify-between">
             <Router>
               <NaviBar />
-              <Routes>
-                <Route path="/" element={<DashBoard />} />
-                <Route path="/register" element={<DashBoard />} />
-                <Route path="/login" element={<DashBoard />} />
-                <Route path="/createproject" element={<NewProject />} />
-              </Routes>
+              <Switch>
+                <Route path="/" exact component={DashBoard} />
+                <Route path="/register" exact component={DashBoard} />
+                <Route path="/login" exact component={DashBoard} />
+                <Route path="/createproject" exact component={NewProject} />
+                <Route path="/projects" exact component={Projects} />
+                <Route path="/project/:id" exact component={Project} />
+              </Switch>
             </Router>
           </div>
         </main>
@@ -224,41 +231,37 @@ function App() {
       <Background color1={"#ffae00"} color2={"#00FFF6"} />
       <Router>
         <NavBar />
-        <Routes>
+        <Switch>
           <Route path="/" element={<Welcome />} />
           <Route path="/features" element={<Features />} />
           <Route path="/login" element={<Auth sign={true} />} />
           <Route path="/register" element={<Auth sign={false} />} />
-        </Routes>
+          <Route path="/search" element={<Search />} />
+        </Switch>
       </Router>
     </div>
   );
 
   return (
-    // <div className="app__wrapper">
-    //   <Chat client={client} theme="team light">
-    //     <ChanelListContainer
-    //       isCreating={isCreating}
-    //       setIsCreating={setIsCreating}
-    //       setCreateType={setCreateType}
-    //       setIsEditing={setIsEditing}
-    //     />
+    <div className="app__wrapper">
+      <Chat client={client} theme="team light">
+        <ChanelListContainer
+          isCreating={isCreating}
+          setIsCreating={setIsCreating}
+          setCreateType={setCreateType}
+          setIsEditing={setIsEditing}
+        />
+        {console.log(client)}
 
-    //     <ChannelConainer
-    //       isCreating={isCreating}
-    //       setIsCreating={setIsCreating}
-    //       isEditing={isEditing}
-    //       setIsEditing={setIsEditing}
-    //       createType={createType}
-    //     />
-    //   </Chat>
-    // </div>
-
-    <main class="relative h-screen overflow-hidden bg-gray-100 dark:bg-gray-800">
-      <div class="flex items-start justify-between">
-        <NavBar />
-      </div>
-    </main>
+        <ChannelConainer
+          isCreating={isCreating}
+          setIsCreating={setIsCreating}
+          isEditing={isEditing}
+          setIsEditing={setIsEditing}
+          createType={createType}
+        />
+      </Chat>
+    </div>
   );
 }
 

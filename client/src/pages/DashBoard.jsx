@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import Cookies from "universal-cookie";
 import { Text, CardOfProject } from "../compenents";
 
 const DashBoard = () => {
   const [listOfProjects, setListOfProjects] = useState([]);
 
+  const cookies = new Cookies();
   useEffect(() => {
     axios.get("http://localhost:3001/projects").then((response) => {
       setListOfProjects(response.data);
@@ -55,7 +57,7 @@ const DashBoard = () => {
               <a href="/profile" class="relative block">
                 <img
                   alt="profil"
-                  src="/images/person/1.jpg"
+                  src={cookies.get("avatarURL")}
                   class="mx-auto object-cover rounded-full h-10 w-10 "
                 />
               </a>
