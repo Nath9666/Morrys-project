@@ -10,3 +10,5 @@ export { default as EditChannel } from "./EditChannel";
 export { default as UserList } from "./UserList";
 export { default as Background } from "./Background";
 export { default as NavBar } from "./NavBar";
+export { default as Text } from "./Text";
+export { default as CardOfProject } from "./CardOfProject";
