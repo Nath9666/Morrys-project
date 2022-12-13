@@ -15,8 +15,9 @@ const CardOfProject = ({
   id,
 }) => {
   var NameType;
+  console.log(Type);
   switch (Type) {
-    case 0:
+    case false:
       NameType = (
         <Text
           Name="PROGRESS"
@@ -25,7 +26,7 @@ const CardOfProject = ({
         />
       );
       break;
-    case 1:
+    case true:
       NameType = (
         <Text Name="COMPLETED" ColorText="text-white" ColorBg="bg-green-200" />
       );
@@ -86,13 +87,13 @@ const CardOfProject = ({
         </div>
         <div class="flex items-center justify-between mb-4 space-x-12">
           <Text
-            Name={Visibility ? "Public" : "Private"}
+            Name={Visibility}
             ColorText={
-              Visibility
+              Visibility === "Public"
                 ? "text-green-400 bg-white border border-green-400"
                 : "text-red-400 bg-white border border-red-400"
             }
-            ColorBg={Visibility ? "" : ""}
+            ColorBg={""}
           />
           {NameType}
         </div>

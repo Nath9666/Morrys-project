@@ -73,7 +73,7 @@ const DashBoard = () => {
                   NameCreator=""
                   Image={value.image}
                   Type={value.Type}
-                  Visibility={value.private}
+                  Visibility={value.Visibility}
                   Duedate={value.dueDate}
                   Description={value.description}
                   id={value.id}

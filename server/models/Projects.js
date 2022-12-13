@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     dueDate: {
       type: DataTypes.DATEONLY,
-      allowNull: false,
+      allowNull: true,
     },
     Type: {
       type: DataTypes.BOOLEAN,
@@ -22,8 +22,8 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: true,
     },
-    private: {
-      type: DataTypes.BOOLEAN,
+    Visibility: {
+      type: DataTypes.STRING,
       allowNull: false,
     },
 

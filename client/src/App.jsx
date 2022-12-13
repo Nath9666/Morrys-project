@@ -40,13 +40,10 @@ if (authToken) {
   );
 }
 
-// TODO: change the color to orange
 // TODO: change the content loyout when you click on the button
-// TODO: put the image of moris
 
-// TODO: creer les route pour acceder au différente pages
-// TODO: faire la bases de données sur les projet et les tâches
-// TODO: post et get des 2, plus ou en ai ethan sur les formulaires
+// TODO: faire la bases de données sur les tâches
+// TODO: post et get les taches, plus ou en ai ethan sur les formulaires
 // TODO: ne pls berde de temps sur le css et se concertrer sur la base et la relation entre les pages
 // TODO : terminer les videos pour voir comment il implemente la relation entre les personnes
 // TODO : dans la page search faire un get de tout les projet public

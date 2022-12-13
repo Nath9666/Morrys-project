@@ -1,16 +1,12 @@
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
-import { ProjectIcon } from "../assets";
-import TagsInput, { Tag, Tag_NameOrColor } from "./TagsInput";
 import axios from "axios";
-import { Link } from "react-router-dom";
 
 const initialState = {
-  NomProject: "Project1",
+  name: "Project1",
   Visibility: "",
-  ProjectType: "",
-  DescriptionProject: "",
-  tags: [new Tag("Nodejs", "green"), new Tag("MongoDB", "#000000")],
+  Type: "2",
+  description: "",
 };
 
 function NewProject(props) {
@@ -20,32 +16,15 @@ function NewProject(props) {
   };
   const SubmitNewProject = async (e) => {
     e.preventDefault();
-    const { NomProject, Visibility, ProjectType, DescriptionProject, tags } =
-      form;
-    const URL = "http://localhost:area5000/auth";
+    const { name, Visibility, description, Type } = form;
     console.log(form);
-    props.ManipDatasNewProject({
-      NomProject,
-      Visibility,
-      ProjectType,
-      DescriptionProject,
-      tags,
-    });
-    /*
-    ENREGISTREMENT BDD
-     */
-
+    axios.post("http://localhost:3001/projects", form);
+    window.location.replace("http://localhost:3000");
     /*
     NAVIGATION CURRENT PROJECT
      */
 
     //window.location.reload();
-  };
-
-  const RecupSelectedTags = (tags) => {
-    setForm({ ...form, tags: tags });
-    //form.tags = tags;
-    console.log(form.tags);
   };
 
   return (
@@ -58,7 +37,7 @@ function NewProject(props) {
               <div className="auth__form-container_fields-content_input">
                 <label htmlFor="NomProject">Project name</label>
                 <input
-                  name="NomProject"
+                  name="name"
                   type="text"
                   placeholder="Project name"
                   onChange={handleChange}
@@ -74,7 +53,7 @@ function NewProject(props) {
                 <Form.Control
                   as="textarea"
                   rows={3}
-                  name="DescriptionProject"
+                  name="description"
                   className={"Textarea"}
                   type="textarea"
                   placeholder="Description of project"
@@ -94,24 +73,6 @@ function NewProject(props) {
                 <option value="public">Public</option>
               </Form.Select>
 
-              <Form.Select
-                aria-label="ProjectType"
-                aria-labelledby="ProjectType"
-                name="ProjectType"
-                onChange={handleChange}
-                required
-              >
-                <option value="">Choose the project's type</option>
-                <option value="code">Code</option>
-                <option value="research">Research</option>
-              </Form.Select>
-
-              <TagsInput
-                selectedTags={RecupSelectedTags}
-                tagsColor={Tag_NameOrColor(form.tags, "color")}
-                tagsName={Tag_NameOrColor(form.tags, "name")}
-              />
-
               <div className="auth__form-container_fields-content_button">
                 <button type="submit"> Create new project </button>
               </div>
@@ -119,7 +80,6 @@ function NewProject(props) {
           </div>
         </div>
       </div>
-      {console.log(form)}
     </>
   );
 }
