@@ -177,5 +177,12 @@ buttons
     border: 1px solid var(--red);
 }
 
+/*
+FOR NEW TASK
+ */
+.form-control[type=file] {
+    cursor: pointer;
+}
+
 
 

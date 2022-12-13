@@ -11,7 +11,7 @@ import {
     Auth,
     Welcome,
     NewProject,
-    CurrentProject
+    CurrentProject, NewTask
 } from "./compenents";
 
 import "stream-chat-react/dist/css/index.css";
@@ -72,12 +72,8 @@ function App() {
                                     DescriptionProject={"A description of project"}
                                     tags={[new Tag("Nodejs",  "green"), new Tag("MongoDB",  "#000000")]} />
      <NewProject/>
-     */
 
-    let Codeur = "Ethan"
-    switch(Codeur){
-        case "Ethan": {
-            if(ProjectCreating)
+     if(ProjectCreating)
                 return <NewProject ManipDatasNewProject={RecupDatasNewProject}/>
 
             return (
@@ -85,6 +81,15 @@ function App() {
                     <CurrentProject props={dataCurrentProject} />
                 </>
             );
+
+     <NewTask/>
+     */
+
+    let Codeur = "Ethan"
+    switch(Codeur){
+        case "Ethan": {
+            return <NewTask/>;
+
         }
         case "Nathan":{
             if (!authToken) return <Welcome />;

@@ -15,3 +15,4 @@ export { default as Background } from "./Background";
 export { default as NewProject } from "./NewProject";
 export { default as CurrentProject } from "./CurrentProject";
 export { default as TagsInput } from "./TagsInput";
+export {default as NewTask} from "./NewTask"
