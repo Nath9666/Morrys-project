@@ -3,7 +3,7 @@ import Cookies from "universal-cookie";
 import axios from "axios";
 
 import { SignIcon } from "../assets";
-import { Background } from "./";
+import { Background } from "../compenents";
 
 const cookies = new Cookies();
 
@@ -16,9 +16,9 @@ const initialState = {
   avatarURL: "",
 };
 
-const Auth = () => {
+const Auth = ({ sign }) => {
   const [form, setForm] = useState(initialState);
-  const [isSignup, setIsSignup] = useState(true);
+  const [isSignup, setIsSignup] = useState(sign);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
