@@ -27,7 +27,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
 
-    //ToDO : lier le createur et les memebres
+    //ToDO : lier le createur et les membres
     //Todo : liers les taches du projets
   });
 
