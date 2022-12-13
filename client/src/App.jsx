@@ -17,6 +17,7 @@ import { Welcome, Features, Auth, DashBoard } from "./pages";
 import "stream-chat-react/dist/css/index.css";
 import "./App.css";
 import "./index.css";
+import NewProject from "./pages/NewProject";
 
 const cookies = new Cookies();
 
@@ -214,7 +215,7 @@ function App() {
                 <Route path="/" element={<DashBoard />} />
                 <Route path="/register" element={<DashBoard />} />
                 <Route path="/login" element={<DashBoard />} />
-                <Route path="/createproject" />
+                <Route path="/createproject" element={<NewProject />} />
               </Routes>
             </Router>
           </div>
