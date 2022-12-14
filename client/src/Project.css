@@ -139,6 +139,7 @@ For Current Project
 }
 
 .h1_big{
+    color: #c26e07;
     font-size: revert;
     font-weight: 300;
 }
@@ -180,9 +181,35 @@ buttons
 /*
 FOR NEW TASK
  */
-.form-control[type=file] {
+
+.form-control[type=file]:not(:disabled):not([readonly]){
     cursor: pointer;
 }
+/*
+.form-control[type=file] {
+    display: none;
+} */
 
+/*
+FOR CHECKLIST
+ */
+
+.title {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+.list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-left: 20px;
+}
+.checked-item,
+.not-checked-item {
+    margin-left: 10px;
+}
+.checked-item {
+    text-decoration: line-through;
+}
 
 

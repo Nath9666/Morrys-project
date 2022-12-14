@@ -1,20 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2c77a325-3123-4bae-bd43-ba3cf20e8412" name="Changes" comment="Merge avec server side : adaptation de App.jsx pour 2 personnes travaillant séparément">
-      <change afterPath="$PROJECT_DIR$/client/src/assets/EditElement.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/assets/ValidationIcon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/compenents/CurrentProject.jsx" afterDir="false" />
+    <list default="true" id="2c77a325-3123-4bae-bd43-ba3cf20e8412" name="Changes" comment="Introduction de NewTask, creation en cours">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/compenents/Checklist.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/Project.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Project.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/assets/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/assets/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/compenents/NewProject.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/compenents/NewProject.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/compenents/TagsInput.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/compenents/TagsInput.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/compenents/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/compenents/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/compenents/NewTask.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/compenents/NewTask.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/.package-lock.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,13 +33,10 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Ethan-begin" />
+        <entry key="$PROJECT_DIR$" value="serveur-side" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/client/src/compenents/Auth.jsx" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -54,18 +46,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/ethan/OneDrive - Efrei/L3-S1/L3S1-PROGRAMMATION WEB/Projet/react-project&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.scopes&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\IntelliJ IDEA 2021.3.2\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "js.introduce.parameter.add.jsdoc": "true",
+    "js.introduce.parameter.generate.optional": "false",
+    "last_opened_file_path": "C:/Users/ethan/OneDrive - Efrei/L3-S1/L3S1-PROGRAMMATION WEB/Projet/react-project",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "project.scopes",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\IntelliJ IDEA 2021.3.2\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="ReactDesignerToolWindowState">
     <option name="myId2Visible">
       <map>
@@ -123,6 +118,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Node.js.App.jsx" />
+        <item itemvalue="Node.js.App.jsx" />
       </list>
     </recent_temporary>
   </component>
@@ -140,6 +136,7 @@
       <workItem from="1670245696612" duration="14414000" />
       <workItem from="1670612004136" duration="11838000" />
       <workItem from="1670786124311" duration="20651000" />
+      <workItem from="1670964580108" duration="11407000" />
     </task>
     <task id="LOCAL-00001" summary="Demarrage branche (installation des dépendances nécessaires) + Debut conception page &quot;Creation new project&quot;. Tag en cours">
       <created>1670294974030</created>

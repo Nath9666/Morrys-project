@@ -50,7 +50,7 @@ function NewProject(props) {
       <div className="auth__form-container">
         <div className="auth__form-container_fields">
           <div className="auth__form-container_fields-content">
-            <h1 style={{ color: "darkorange" }}>Creation of a new project</h1>
+            <h1 className="h1_big">Creation of a new project</h1>
             <form onSubmit={SubmitNewProject}>
               <div className="auth__form-container_fields-content_input">
                 <label htmlFor="NomProject">Project name</label>

@@ -88,6 +88,16 @@ function App() {
     let Codeur = "Ethan"
     switch(Codeur){
         case "Ethan": {
+            /*
+            if(ProjectCreating)
+                return <NewProject ManipDatasNewProject={RecupDatasNewProject}/>
+
+            return (
+                <>
+                    <CurrentProject props={dataCurrentProject} />
+                </>
+            );*/
+
             return <NewTask/>;
 
         }
