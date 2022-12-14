@@ -5,7 +5,7 @@ const Search = () => {
   const [listOfProjectsPublic, setListOfProjectsPublic] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:3001/projects").then((response) => {
+    axios.get("http://localhost:3001/projects/public").then((response) => {
       setListOfProjectsPublic(response.data);
     });
   }, []);

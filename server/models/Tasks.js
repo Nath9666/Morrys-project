@@ -1,7 +1,5 @@
-const { DataTypes } = require("sequelize");
-
 module.exports = (sequelize, DataTypes) => {
-  const Projects = sequelize.define("Projects", {
+  const Tasks = sequelize.define("Tasks", {
     name: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -14,25 +12,17 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DATEONLY,
       allowNull: true,
     },
-    Type: {
+    State: {
       type: DataTypes.BOOLEAN,
       allowNull: true,
     },
-    image: {
-      type: DataTypes.STRING,
-      allowNull: true,
-    },
-    Visibility: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
   });
 
-  Projects.associate = (models) => {
-    Projects.hasMany(models.Tasks, {
+  Tasks.associate = (models) => {
+    Tasks.hasMany(models.Tasks, {
       onDelete: "cascade",
     });
   };
 
-  return Projects;
+  return Tasks;
 };

@@ -1,6 +1,7 @@
 import React from "react";
 import ProgressBar from "react-bootstrap/ProgressBar";
 import { Text } from "./";
+import { useHistory } from "react-router-dom";
 
 const CardOfProject = ({
   Name,
@@ -37,8 +38,15 @@ const CardOfProject = ({
       );
   }
 
+  let history = useHistory();
+
   return (
-    <div class="mb-4">
+    <div
+      class="mb-4"
+      onClick={() => {
+        history.push(`/project/${id}`);
+      }}
+    >
       <div class="w-full p-4 bg-white shadow-lg rounded-2xl dark:bg-gray-700">
         <div class="flex items-center justify-between mb-6">
           <div class="flex items-center">

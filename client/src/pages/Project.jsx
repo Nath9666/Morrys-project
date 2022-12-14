@@ -5,12 +5,15 @@ import axios from "axios";
 const Project = () => {
   let { id } = useParams();
   const [projectObject, setprojectObject] = useState({});
+  const [TasksProject, settasksProject] = useState({});
 
   useEffect(() => {
     axios.get(`http://localhost:3001/projects/byId/${id}`).then((response) => {
       setprojectObject(response.data);
     });
   });
+
+  console.log(TasksProject);
 
   return (
     <div class="text-black dark:text-white">

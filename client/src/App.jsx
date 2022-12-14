@@ -19,6 +19,7 @@ import {
   Search,
   Projects,
   Project,
+  Tasks,
 } from "./pages";
 
 import "stream-chat-react/dist/css/index.css";
@@ -220,6 +221,7 @@ function App() {
                 <Route path="/createproject" exact component={NewProject} />
                 <Route path="/projects" exact component={Projects} />
                 <Route path="/project/:id" exact component={Project} />
+                <Route path="/tasks" exact component={Tasks} />
               </Switch>
             </Router>
           </div>
@@ -232,11 +234,11 @@ function App() {
       <Router>
         <NavBar />
         <Switch>
-          <Route path="/" element={<Welcome />} />
-          <Route path="/features" element={<Features />} />
-          <Route path="/login" element={<Auth sign={true} />} />
-          <Route path="/register" element={<Auth sign={false} />} />
-          <Route path="/search" element={<Search />} />
+          <Route path="/" exact component={Welcome} />
+          <Route path="/features" exact component={Features} />
+          <Route path="/login" exact component={Auth} />
+          <Route path="/register" exact component={Auth} />
+          <Route path="/search" exact component={Search} />
         </Switch>
       </Router>
     </div>

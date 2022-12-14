@@ -11,6 +11,8 @@ const db = require("./models");
 //Routers
 const postRouter = require("./routes/Projects");
 app.use("/projects", postRouter);
+const TaskRouter = require("./routes/Tasks");
+app.use("/tasks", TaskRouter);
 
 db.sequelize.sync().then(() => {
   app.listen(PORT, () => console.log(`listening on port ${PORT}`));

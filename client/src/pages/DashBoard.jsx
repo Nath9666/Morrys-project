@@ -98,22 +98,6 @@ const DashBoard = () => {
                       <span class="mx-4">01</span>
                       <span>Create wireframe</span>
                     </div>
-                    <svg
-                      width="20"
-                      height="20"
-                      fill="currentColor"
-                      class="mx-4 text-gray-400 dark:text-gray-300"
-                      viewBox="0 0 1024 1024"
-                    >
-                      <path
-                        d="M699 353h-46.9c-10.2 0-19.9 4.9-25.9 13.3L469 584.3l-71.2-98.8c-6-8.3-15.6-13.3-25.9-13.3H325c-6.5 0-10.3 7.4-6.5 12.7l124.6 172.8a31.8 31.8 0 0 0 51.7 0l210.6-292c3.9-5.3.1-12.7-6.4-12.7z"
-                        fill="currentColor"
-                      ></path>
-                      <path
-                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448s448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372s372 166.6 372 372s-166.6 372-372 372z"
-                        fill="currentColor"
-                      ></path>
-                    </svg>
                   </li>
                   <li class="flex items-center justify-between py-3 text-gray-600 border-b-2 border-gray-100 dark:text-gray-200 dark:border-gray-800">
                     <div class="flex items-center justify-start text-sm">
@@ -136,18 +120,6 @@ const DashBoard = () => {
                       </span>
                       <span class="flex items-center mx-4 text-gray-400 dark:text-gray-300">
                         3
-                        <svg
-                          width="15"
-                          height="15"
-                          class="ml-1"
-                          fill="currentColor"
-                          viewBox="0 0 384 512"
-                        >
-                          <path
-                            d="M384 144c0-44.2-35.8-80-80-80s-80 35.8-80 80c0 36.4 24.3 67.1 57.5 76.8c-.6 16.1-4.2 28.5-11 36.9c-15.4 19.2-49.3 22.4-85.2 25.7c-28.2 2.6-57.4 5.4-81.3 16.9v-144c32.5-10.2 56-40.5 56-76.3c0-44.2-35.8-80-80-80S0 35.8 0 80c0 35.8 23.5 66.1 56 76.3v199.3C23.5 365.9 0 396.2 0 432c0 44.2 35.8 80 80 80s80-35.8 80-80c0-34-21.2-63.1-51.2-74.6c3.1-5.2 7.8-9.8 14.9-13.4c16.2-8.2 40.4-10.4 66.1-12.8c42.2-3.9 90-8.4 118.2-43.4c14-17.4 21.1-39.8 21.6-67.9c31.6-10.8 54.4-40.7 54.4-75.9zM80 64c8.8 0 16 7.2 16 16s-7.2 16-16 16s-16-7.2-16-16s7.2-16 16-16zm0 384c-8.8 0-16-7.2-16-16s7.2-16 16-16s16 7.2 16 16s-7.2 16-16 16zm224-320c8.8 0 16 7.2 16 16s-7.2 16-16 16s-16-7.2-16-16s7.2-16 16-16z"
-                            fill="currentColor"
-                          ></path>
-                        </svg>
                       </span>
                     </div>
                     <svg
