@@ -154,7 +154,7 @@ function App() {
                 </span>
                 <span class="mx-4 text-sm font-normal">My messages</span>
               </a>
-              <buton
+              <button
                 class="flex items-center justify-start w-full p-4 my-2 font-thin text-red-500 uppercase transition-colors duration-200 dark:text-red-200 hover:text-red-700"
                 onClick={() => {
                   cookies.remove("userId");
@@ -166,6 +166,7 @@ function App() {
                   cookies.remove("token");
 
                   window.location.reload();
+                  window.location.replace("http://localhost:3000");
                 }}
               >
                 <span class="text-left">
@@ -181,7 +182,7 @@ function App() {
                   </svg>
                 </span>
                 <span class="mx-4 text-sm font-normal">Log out</span>
-              </buton>
+              </button>
               <a
                 class="flex items-center justify-start w-full p-4 my-2 font-thin text-gray-500 uppercase transition-colors duration-200 dark:text-gray-200 hover:text-orange-500"
                 href="/settings"
@@ -207,6 +208,31 @@ function App() {
     );
   };
 
+  const Messages = () => {
+    return (
+      <div class="h-screen pt-2 pb-24 pl-2 pr-2 overflow-auto md:pt-0 md:pr-0 md:pl-0 w-full">
+        <Chat client={client} theme="team light">
+          <ChanelListContainer
+            isCreating={isCreating}
+            setIsCreating={setIsCreating}
+            setCreateType={setCreateType}
+            setIsEditing={setIsEditing}
+            class="w-8"
+          />
+
+          <ChannelConainer
+            isCreating={isCreating}
+            setIsCreating={setIsCreating}
+            isEditing={isEditing}
+            setIsEditing={setIsEditing}
+            createType={createType}
+            class="w-28"
+          />
+        </Chat>
+      </div>
+    );
+  };
+
   if (authToken)
     return (
       <>
@@ -222,6 +248,7 @@ function App() {
                 <Route path="/projects" exact component={Projects} />
                 <Route path="/project/:id" exact component={Project} />
                 <Route path="/tasks" exact component={Tasks} />
+                <Route path="/messages" exact component={Messages} />
               </Switch>
             </Router>
           </div>
@@ -241,28 +268,6 @@ function App() {
           <Route path="/search" exact component={Search} />
         </Switch>
       </Router>
-    </div>
-  );
-
-  return (
-    <div className="app__wrapper">
-      <Chat client={client} theme="team light">
-        <ChanelListContainer
-          isCreating={isCreating}
-          setIsCreating={setIsCreating}
-          setCreateType={setCreateType}
-          setIsEditing={setIsEditing}
-        />
-        {console.log(client)}
-
-        <ChannelConainer
-          isCreating={isCreating}
-          setIsCreating={setIsCreating}
-          isEditing={isEditing}
-          setIsEditing={setIsEditing}
-          createType={createType}
-        />
-      </Chat>
     </div>
   );
 }

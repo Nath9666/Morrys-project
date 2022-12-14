@@ -17,14 +17,8 @@ function NewProject(props) {
   const SubmitNewProject = async (e) => {
     e.preventDefault();
     const { name, Visibility, description, Type } = form;
-    console.log(form);
     axios.post("http://localhost:3001/projects", form);
     window.location.replace("http://localhost:3000");
-    /*
-    NAVIGATION CURRENT PROJECT
-     */
-
-    //window.location.reload();
   };
 
   return (

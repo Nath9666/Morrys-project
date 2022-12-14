@@ -7,6 +7,16 @@ router.get("/", async (req, res) => {
   res.json(listOfTasks);
 });
 
+router.get("/:projectId", async (req, res) => {
+  const projectId = req.params.projectId;
+  const tasks = await Tasks.findAll({
+    where: {
+      ProjectId: projectId,
+    },
+  });
+  res.json(tasks);
+});
+
 router.post("/", async (req, res) => {
   const task = req.body;
   await Tasks.create(task);

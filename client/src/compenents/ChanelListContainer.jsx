@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { ChannelList, useChatContext } from "stream-chat-react";
 import Cookies from "universal-cookie";
 
@@ -7,54 +7,38 @@ import { MorryIcon, LogoutIcon } from "../assets";
 
 const cookies = new Cookies();
 
-const SideBar = ({ logout }) => (
-  <div className="channel-list__sidebar">
-    <div className="channel-list__sidebar__icon1">
-      <div className="icon1__inner">
-        <img src={MorryIcon} alt="Application" width={60} />
-      </div>
-    </div>
-    <div className="channel-list__sidebar__icon2">
-      <div className="icon1__inner" onClick={logout}>
-        <img src={LogoutIcon} alt="LogOut" width={30} />
-      </div>
-    </div>
-  </div>
-);
-
 const CompanyHeader = () => (
   <div className="p-4 ">
     <p className="text-lg font-normal text-white">Morrys</p>
   </div>
 );
 
-function ChanelListContainer({
+const customChannelTeamFilter = (channels) => {
+  return channels.filter((channel) => channel.type === "team");
+};
+
+const customChannelMessagingFilter = (channels) => {
+  return channels.filter((channel) => channel.type === "messaging");
+};
+
+function ChannelListContent({
   isCreating,
   setIsCreating,
   setCreateType,
   setIsEditing,
 }) {
-  const logout = () => {
-    cookies.remove("userId");
-    cookies.remove("username");
-    cookies.remove("fullName");
-    cookies.remove("avatarURL");
-    cookies.remove("hashedPassword");
-    cookies.remove("phoneNumber");
-    cookies.remove("token");
+  const { client } = useChatContext();
 
-    window.location.reload();
-  };
+  const filters = { members: { $in: [client.userID] } };
 
   return (
     <>
-      <SideBar logout={logout} />
       <div className="channel-list__list__wrapper">
         <CompanyHeader />
         <ChannelSearch />
         <ChannelList
-          filter={{}}
-          channelRenderFilterFn={() => {}}
+          filter={filters}
+          channelRenderFilterFn={customChannelTeamFilter}
           List={(listProps) => (
             <TeamChannelList
               {...listProps}
@@ -70,8 +54,8 @@ function ChanelListContainer({
           )}
         />
         <ChannelList
-          filter={{}}
-          channelRenderFilterFn={() => {}}
+          filter={filters}
+          channelRenderFilterFn={customChannelMessagingFilter}
           List={(listProps) => (
             <TeamChannelList
               {...listProps}
@@ -90,5 +74,46 @@ function ChanelListContainer({
     </>
   );
 }
+
+const ChanelListContainer = ({
+  setCreateType,
+  setIsCreating,
+  setIsEditing,
+}) => {
+  const [toogleContainer, setToogleContainer] = useState(false);
+
+  return (
+    <>
+      <div className="channel-list__container">
+        <ChannelListContent
+          setIsCreating={setIsCreating}
+          setCreateType={setCreateType}
+          setIsEditing={setIsEditing}
+        />
+      </div>
+
+      <div
+        className="channel-list__container-responsive"
+        style={{
+          left: toogleContainer ? "0%" : "-89%",
+          backgroundColor: "#005fff",
+        }}
+      >
+        <div
+          className="channel-list__container-toggle"
+          onClick={() =>
+            setToogleContainer((prevToggleContainer) => !prevToggleContainer)
+          }
+        ></div>
+        <ChannelListContent
+          setIsCreating={setIsCreating}
+          setCreateType={setCreateType}
+          setIsEditing={setIsEditing}
+          setToogleContainer={setToogleContainer}
+        />
+      </div>
+    </>
+  );
+};
 
 export default ChanelListContainer;

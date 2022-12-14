@@ -1,15 +1,16 @@
 import React, { useState } from "react";
 import TagsInput, { Tag, Tag_NameOrColor } from "./TagsInput";
 import Form from "react-bootstrap/Form";
+import axios from "axios";
 
 const initialState_Task = {
-  TaskName: "NewTask1",
-  DueDate: "",
-  state: "false",
-  TaskDescription: "",
+  name: "NewTask1",
+  dueDate: "",
+  State: "false",
+  description: "",
 };
 
-function NewTask() {
+function NewTask({ id }) {
   const [Task_form, setTask_form] = useState(initialState_Task);
   const handleChange = (e) => {
     setTask_form({ ...Task_form, [e.target.name]: e.target.value });
@@ -21,12 +22,11 @@ function NewTask() {
     });
   };
 
-  const RecupSelectedTags = (tags) => {
-    setTask_form({ ...Task_form, tags: tags });
-    console.log(Task_form.tags);
+  const SubmitNewProject = async (e) => {
+    e.preventDefault();
+    axios.post("http://localhost:3001/tasks", { Task_form, ProjectId: id });
+    window.location.replace("http://localhost:3000");
   };
-
-  function SubmitNewProject() {}
 
   return (
     <>
@@ -36,7 +36,7 @@ function NewTask() {
           <div className="auth__form-container_fields-content_input">
             <label htmlFor="TaskName">Task name</label>
             <input
-              name="TaskName"
+              name="name"
               type="text"
               placeholder="Name of new task"
               onChange={handleChange}
@@ -52,7 +52,7 @@ function NewTask() {
             <Form.Control
               as="textarea"
               rows={3}
-              name="TaskDescription"
+              name="description"
               className={"Textarea"}
               type="textarea"
               placeholder="Description of Task"
@@ -64,34 +64,14 @@ function NewTask() {
           <div className="auth__form-container_fields-content_input">
             <label htmlFor="DueDate">Due date</label>
             <input
-              name="DueDate"
+              name="dueDate"
               type="date"
               placeholder="Date of delivery"
               onChange={handleChange}
               required
             />
           </div>
-
-          <Form.Group
-            controlId="formFileMultiple"
-            className="mb-3 auth__form-container_fields-content_input"
-          >
-            <Form.Label>Files of new task</Form.Label>
-            <Form.Control
-              name="files"
-              type="file"
-              onChange={handleChange_addTab}
-              multiple
-            />
-          </Form.Group>
-
-          <TagsInput
-            selectedTags={RecupSelectedTags}
-            tagsColor={Tag_NameOrColor(Task_form.tags, "color")}
-            tagsName={Tag_NameOrColor(Task_form.tags, "name")}
-          />
         </form>
-        {console.log(Task_form)}
       </div>
 
       <div className="auth__form-container_fields-content_button">

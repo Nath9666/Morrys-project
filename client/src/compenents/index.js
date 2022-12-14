@@ -14,3 +14,4 @@ export { default as Text } from "./Text";
 export { default as CardOfProject } from "./CardOfProject";
 export { default as ListOfProject } from "./ListOfProject";
 export { default as ListOfTask } from "./ListOfTask";
+export { default as NewTask } from "./NewTask";
