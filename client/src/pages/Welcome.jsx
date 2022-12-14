@@ -30,16 +30,6 @@ export default function Welcome() {
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit,
                 impedit!
               </p>
-              <div className="mt-8 flex gap-x-4 sm:justify-center">
-                <div className="hidden sm:mb-8 sm:flex sm:justify-center">
-                  <input
-                    type="text"
-                    placeholder="Search a project"
-                    className="relative overflow-hidden rounded-full py-1.5 px-4 text-1.5xl leading-6 ring-1 ring-gray-900/10
-                       hover:ring-gray-900/20"
-                  />
-                </div>
-              </div>
             </div>
           </div>
         </div>

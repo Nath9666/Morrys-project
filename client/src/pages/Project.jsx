@@ -24,7 +24,6 @@ const Project = () => {
       <div>{projectObject.description}</div>
       <div>{projectObject.Visibility}</div>
       <div>{projectObject.dueDate}</div>
-      <img src={projectObject.image} alt="" />
       <NewTask id={id} />
       {TasksProject.map((task, key) => {
         return (

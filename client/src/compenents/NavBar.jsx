@@ -7,7 +7,7 @@ const navigation = [
   { name: "What is Morrys", onClick: "/" },
   { name: "Features", onClick: "/features" },
   { name: "Search", onClick: "/Search" },
-  { name: "About us", onClick: "/AboutUs" },
+  { name: "About us", onClick: "#" },
 ];
 
 const NavBar = () => {
@@ -53,12 +53,6 @@ const NavBar = () => {
                 className="inline-block rounded-lg px-3 py-1.5 text-sm font-semibold leading-6 text-gray-900 shadow-sm ring-1 ring-orange-600 hover:ring-gray-900/20  hover:bg-orange-600"
               >
                 Log in
-              </a>
-              <a
-                href="/register"
-                className="inline-block rounded-lg px-3 py-1.5 text-sm font-semibold leading-6 text-gray-900 shadow-sm ring-1 ring-orange-600 hover:ring-gray-900/20  hover:bg-orange-600 mx-3"
-              >
-                Register
               </a>
             </div>
           </nav>

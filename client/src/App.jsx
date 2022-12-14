@@ -120,7 +120,7 @@ function App() {
               </a>
               <a
                 class="flex items-center justify-start w-full p-4 my-2 font-thin text-gray-500 uppercase transition-colors duration-200 dark:text-gray-200 hover:text-orange-500"
-                href="/calendar"
+                href="#"
               >
                 <span class="text-left">
                   <svg
@@ -185,7 +185,7 @@ function App() {
               </button>
               <a
                 class="flex items-center justify-start w-full p-4 my-2 font-thin text-gray-500 uppercase transition-colors duration-200 dark:text-gray-200 hover:text-orange-500"
-                href="/settings"
+                href="#"
               >
                 <span class="text-left">
                   <svg
